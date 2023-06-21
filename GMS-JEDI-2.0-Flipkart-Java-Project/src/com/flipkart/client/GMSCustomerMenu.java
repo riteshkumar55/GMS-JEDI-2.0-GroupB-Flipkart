@@ -3,19 +3,14 @@
  */
 package com.flipkart.client;
 
-<<<<<<< HEAD:GMS-JEDI-2.0-Flipkart-Java-Project/src/com/flipkart/client/CustomerMenu.java
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import com.flipkart.bean.Gym;
-=======
 import java.util.List;
 import java.util.Scanner;
-
 import com.flipkart.bean.Customer;
 import com.flipkart.bean.User;
->>>>>>> 032679d20c8ddcd305a3de852d09c6373afb444a:GMS-JEDI-2.0-Flipkart-Java-Project/src/com/flipkart/client/GMSCustomerMenu.java
 import com.flipkart.service.BookingSlotService;
 import com.flipkart.service.CustomerService;
 import com.flipkart.service.CustomerInterface;
@@ -23,12 +18,8 @@ import com.flipkart.service.CustomerInterface;
 /**
  * 
  */
-<<<<<<< HEAD:GMS-JEDI-2.0-Flipkart-Java-Project/src/com/flipkart/client/CustomerMenu.java
-public class CustomerMenu {
-	public static List<Gym> gymnasiums = new ArrayList<Gym>();
-=======
 public class GMSCustomerMenu {
->>>>>>> 032679d20c8ddcd305a3de852d09c6373afb444a:GMS-JEDI-2.0-Flipkart-Java-Project/src/com/flipkart/client/GMSCustomerMenu.java
+	public static List<Gym> gymnasiums = new ArrayList<Gym>();
 	public void showCustomerMenu(String username) {
 		Scanner in = new Scanner(System.in);
 		System.out.println("Menu:");

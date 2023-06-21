@@ -11,7 +11,7 @@ import com.flipkart.bean.Gym;
  * 
  */
 public interface CustomerInterface {
-	public boolean customrRegisteration();
+	public boolean customerRegistration();
 	public void showAllGym(List<Gym> gymnasiums);
 	public void showGymDetails(int gymNo);
 	public void showAllBookings(String username);

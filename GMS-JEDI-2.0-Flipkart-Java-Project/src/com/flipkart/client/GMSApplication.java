@@ -3,7 +3,6 @@
  */
 package com.flipkart.client;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -15,11 +14,11 @@ import com.flipkart.service.CustomerService;
 import com.flipkart.service.GymOwnerService;
 import com.flipkart.service.UserService;
 import com.flipkart.service.UserInterface;
-=======
 import java.util.*;
 import com.flipkart.service.*;
 import com.flipkart.bean.*;
->>>>>>> 032679d20c8ddcd305a3de852d09c6373afb444a
+import com.flipkart.client.GMSCustomerMenu;
+import com.flipkart.client.GMSGymOwnerMenu;
 
 /**
  * 
@@ -29,28 +28,19 @@ public class GMSApplication {
 	/**
 	 * @param args
 	 */
-<<<<<<< HEAD
 
-
-	public static void main(String[] args) {
-
-=======
 	public static List<User> userList = new ArrayList<>();
 
 	public static List<Customer> customerList = new ArrayList<>();
-	
-	
-	
+
 	public static void main(String[] args) {
-		
-//		for(int i=0;i<10;i++) {
-//			User user = new User("user" + i ,"pass" + i, "customer");
-//			userList.add(user);
-//			System.out.println(user.getUserId() + user.getPassword());
-//		}
->>>>>>> 032679d20c8ddcd305a3de852d09c6373afb444a
+		for (int i = 0; i < 10; i++) {
+			User user = new User("user" + i, "pass" + i, "customer");
+			userList.add(user);
+			System.out.println(user.getUserId() + user.getPassword());
+		}
 		Scanner in = new Scanner(System.in);
-		
+
 		System.out.println("Welcome to FlipFit Gymnasium Application\n");
 		System.out.println("Menu:");
 		System.out.println("1. Login");
@@ -59,10 +49,10 @@ public class GMSApplication {
 		System.out.println("4. Update Password");
 		System.out.println("5. Exit\n");
 		System.out.println("Enter your choice: ");
-		
+
 		int choice = in.nextInt();
-		
-		switch(choice){
+
+		switch (choice) {
 		case 1:
 			System.out.println("Login to FlipFit");
 			System.out.println("Enter your username: ");
@@ -70,28 +60,27 @@ public class GMSApplication {
 			System.out.println("Enter your password: ");
 			String password = in.next();
 			UserInterface userSer = new UserService();
-			boolean successLogin = userSer.login(username,password, userList);
-			if(successLogin) {
+			boolean successLogin = userSer.login(username, password, userList);
+			if (successLogin) {
 				String role = userSer.checkRole(username, password);
-				switch(role) {
+				switch (role) {
 				case "customer":
-					
+
 					GMSCustomerMenu cusMenu = new GMSCustomerMenu();
 					cusMenu.showCustomerMenu(username);
 					break;
-					
+
 				case "Gym Owner":
 					GMSGymOwnerMenu gymOwnerMenu = new GMSGymOwnerMenu();
 					gymOwnerMenu.showGymOwnerMenu();
 					break;
-					
+
 				case "Admin":
 					GMSAdminMenu adminMenu = new GMSAdminMenu();
 					adminMenu.showAdminMenu();
 					break;
 				}
-			}
-			else {
+			} else {
 				System.out.println("Wrong Login Credentials!");
 			}
 			break;
@@ -100,7 +89,7 @@ public class GMSApplication {
 			cusMenu.customerRegistration(userList, customerList);
 			break;
 		case 3:
-			GymOwnerMenu gymOwnerMenu = new GymOwnerMenu();
+			GMSGymOwnerMenu gymOwnerMenu = new GMSGymOwnerMenu();
 			gymOwnerMenu.showGymRegistrationMenu();
 			break;
 		case 4:
@@ -111,7 +100,8 @@ public class GMSApplication {
 			String oldPassword = in.nextLine();
 			System.out.println("Please enter your new password: ");
 			String newPassword = in.nextLine();
-			if(userSerr.updatePassword(usernamee , oldPassword, newPassword));
+			if (userSerr.updatePassword(usernamee, oldPassword, newPassword))
+				;
 			break;
 		case 5:
 			System.exit(0);

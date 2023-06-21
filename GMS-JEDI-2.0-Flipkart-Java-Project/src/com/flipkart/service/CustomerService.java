@@ -36,5 +36,8 @@ public class CustomerService implements CustomerInterface{
 	public boolean cancelBooking(String username , int bookingNo) {
 		return true;
 	}
+	public boolean customerRegistration() {
+		return true;
+	}
 	
 }
