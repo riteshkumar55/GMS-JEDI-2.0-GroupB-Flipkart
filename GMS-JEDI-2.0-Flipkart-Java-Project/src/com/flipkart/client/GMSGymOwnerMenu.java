@@ -11,7 +11,7 @@ import com.flipkart.service.GymOwnerInterface;
 /**
  * 
  */
-public class GymOwnerMenu {
+public class GMSGymOwnerMenu {
 	public void showGymOwnerMenu() {
 		Scanner in = new Scanner(System.in);
 		System.out.println("Menu:");

@@ -8,6 +8,11 @@ package com.flipkart.bean;
  */
 public class User {
 	private String userId;
+	public User(String userId, String password, String role) {
+		this.userId = userId;
+		this.password = password;
+		this.role = role;
+	}
 	private String password;
 	private String role;
 	public String getUserId() {

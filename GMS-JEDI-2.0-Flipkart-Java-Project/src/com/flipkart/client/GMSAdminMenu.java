@@ -10,7 +10,7 @@ import com.flipkart.service.*;
 /**
  * 
  */
-public class AdminMenu {
+public class GMSAdminMenu {
 	public void showAdminMenu() {
 		Scanner in = new Scanner(System.in);
 		System.out.println("Menu:");

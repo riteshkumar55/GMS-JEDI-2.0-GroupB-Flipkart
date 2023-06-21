@@ -7,6 +7,10 @@ package com.flipkart.bean;
  * 
  */
 public class Admin extends User{
+	public Admin(String userId, String password, String role) {
+		super(userId, password, role);
+		// TODO Auto-generated constructor stub
+	}
 	private String admName;
 	private String address;
 	public String getAdmName() {

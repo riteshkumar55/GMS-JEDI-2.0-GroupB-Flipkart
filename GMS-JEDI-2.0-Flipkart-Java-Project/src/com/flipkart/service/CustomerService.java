@@ -1,9 +1,6 @@
 package com.flipkart.service;
 
 public class CustomerService implements CustomerInterface{
-	public boolean customrRegisteration() {
-		return true;
-	}
 	
 	public void showAllGym() {
 		System.out.println("Gym1");

@@ -3,8 +3,11 @@
  */
 package com.flipkart.client;
 
+import java.util.List;
 import java.util.Scanner;
 
+import com.flipkart.bean.Customer;
+import com.flipkart.bean.User;
 import com.flipkart.service.BookingSlotService;
 import com.flipkart.service.CustomerService;
 import com.flipkart.service.CustomerInterface;
@@ -12,7 +15,7 @@ import com.flipkart.service.CustomerInterface;
 /**
  * 
  */
-public class CustomerMenu {
+public class GMSCustomerMenu {
 	public void showCustomerMenu(String username) {
 		Scanner in = new Scanner(System.in);
 		System.out.println("Menu:");
@@ -68,5 +71,30 @@ public class CustomerMenu {
 			System.out.println("logged out!");
 			break;
 		}
+	}
+	
+	public void customerRegistration(List<User> userlist, List<Customer> customerlist) {
+		
+		Customer newCustomer = new Customer("1","1","1");
+		User newUser = new User("1","1","1");
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("Please enter your Name: ");
+		newCustomer.setCusName(in.nextLine());
+		System.out.println("Please enter your Address: ");
+		newCustomer.setAddress(in.nextLine());
+		System.out.println("Please set your password: ");
+		newCustomer.setPassword(in.next());
+		newUser.setPassword(newCustomer.getPassword());
+		System.out.println("Please enter your username: ");
+		newCustomer.setUserId(in.next());
+		newUser.setUserId(newCustomer.getUserId());
+		newCustomer.setRole("customer");
+		newUser.setRole("customer");
+		customerlist.add(newCustomer);
+		userlist.add(newUser);
+		System.out.println("New Customer Added");
+//	
+		
 	}
 }
