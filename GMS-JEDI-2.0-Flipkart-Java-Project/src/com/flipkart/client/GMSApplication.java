@@ -3,8 +3,11 @@
  */
 package com.flipkart.client;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
+import com.flipkart.bean.Gym;
 import com.flipkart.service.AdminGMSService;
 import com.flipkart.service.BookingSlotService;
 import com.flipkart.service.CustomerService;
@@ -20,9 +23,10 @@ public class GMSApplication {
 	/**
 	 * @param args
 	 */
+
+
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
+
 		Scanner in = new Scanner(System.in);
 		
 		System.out.println("Welcome to FlipFit Gymnasium Application\n");
@@ -72,6 +76,8 @@ public class GMSApplication {
 		case 2:
 			break;
 		case 3:
+			GymOwnerMenu gymOwnerMenu = new GymOwnerMenu();
+			gymOwnerMenu.showGymRegistrationMenu();
 			break;
 		case 4:
 			UserInterface userSerr = new UserService();

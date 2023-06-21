@@ -3,8 +3,11 @@
  */
 package com.flipkart.client;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
+import com.flipkart.bean.Gym;
 import com.flipkart.service.BookingSlotService;
 import com.flipkart.service.CustomerService;
 import com.flipkart.service.CustomerInterface;
@@ -13,6 +16,7 @@ import com.flipkart.service.CustomerInterface;
  * 
  */
 public class CustomerMenu {
+	public static List<Gym> gymnasiums = new ArrayList<Gym>();
 	public void showCustomerMenu(String username) {
 		Scanner in = new Scanner(System.in);
 		System.out.println("Menu:");
@@ -21,6 +25,11 @@ public class CustomerMenu {
 		System.out.println("3. Cancel slot bookings");
 		System.out.println("4. Logout\n");
 		System.out.println("Enter your choice: ");
+		// TODO Auto-generated method stub
+		for(int i=0;i<10;i++) {
+			Gym gm = new Gym(i,"Gym "+i,"GST_GYM_"+i,"Address_"+i,10);
+			gymnasiums.add(gm);
+		}
 		
 		int choiceCus = in.nextInt();
 		CustomerInterface cusSer = new CustomerService();
@@ -29,7 +38,7 @@ public class CustomerMenu {
 		case 1:
 			int slotNo = -1;
 			while(slotNo<0) {
-				cusSer.showAllGym();
+				cusSer.showAllGym(gymnasiums);
 				System.out.println("Please Select the gym: ");
 				int gymNo = in.nextInt();
 				cusSer.showGymDetails(gymNo);
