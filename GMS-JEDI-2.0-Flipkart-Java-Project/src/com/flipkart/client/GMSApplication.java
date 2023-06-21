@@ -3,6 +3,7 @@
  */
 package com.flipkart.client;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,6 +15,11 @@ import com.flipkart.service.CustomerService;
 import com.flipkart.service.GymOwnerService;
 import com.flipkart.service.UserService;
 import com.flipkart.service.UserInterface;
+=======
+import java.util.*;
+import com.flipkart.service.*;
+import com.flipkart.bean.*;
+>>>>>>> 032679d20c8ddcd305a3de852d09c6373afb444a
 
 /**
  * 
@@ -23,10 +29,26 @@ public class GMSApplication {
 	/**
 	 * @param args
 	 */
+<<<<<<< HEAD
 
 
 	public static void main(String[] args) {
 
+=======
+	public static List<User> userList = new ArrayList<>();
+
+	public static List<Customer> customerList = new ArrayList<>();
+	
+	
+	
+	public static void main(String[] args) {
+		
+//		for(int i=0;i<10;i++) {
+//			User user = new User("user" + i ,"pass" + i, "customer");
+//			userList.add(user);
+//			System.out.println(user.getUserId() + user.getPassword());
+//		}
+>>>>>>> 032679d20c8ddcd305a3de852d09c6373afb444a
 		Scanner in = new Scanner(System.in);
 		
 		System.out.println("Welcome to FlipFit Gymnasium Application\n");
@@ -48,23 +70,23 @@ public class GMSApplication {
 			System.out.println("Enter your password: ");
 			String password = in.next();
 			UserInterface userSer = new UserService();
-			boolean successLogin = userSer.login(username,password);
+			boolean successLogin = userSer.login(username,password, userList);
 			if(successLogin) {
 				String role = userSer.checkRole(username, password);
 				switch(role) {
 				case "customer":
 					
-					CustomerMenu cusMenu = new CustomerMenu();
+					GMSCustomerMenu cusMenu = new GMSCustomerMenu();
 					cusMenu.showCustomerMenu(username);
 					break;
 					
 				case "Gym Owner":
-					GymOwnerMenu gymOwnerMenu = new GymOwnerMenu();
+					GMSGymOwnerMenu gymOwnerMenu = new GMSGymOwnerMenu();
 					gymOwnerMenu.showGymOwnerMenu();
 					break;
 					
 				case "Admin":
-					AdminMenu adminMenu = new AdminMenu();
+					GMSAdminMenu adminMenu = new GMSAdminMenu();
 					adminMenu.showAdminMenu();
 					break;
 				}
@@ -74,6 +96,8 @@ public class GMSApplication {
 			}
 			break;
 		case 2:
+			GMSCustomerMenu cusMenu = new GMSCustomerMenu();
+			cusMenu.customerRegistration(userList, customerList);
 			break;
 		case 3:
 			GymOwnerMenu gymOwnerMenu = new GymOwnerMenu();

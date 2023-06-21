@@ -5,9 +5,6 @@ import java.util.List;
 import com.flipkart.bean.Gym;
 
 public class CustomerService implements CustomerInterface{
-	public boolean customrRegisteration() {
-		return true;
-	}
 	
 	public void showAllGym(List<Gym> gymnasiums) {
 		System.out.println("Name Address Total Slots Number of Machines");

@@ -3,11 +3,19 @@
  */
 package com.flipkart.client;
 
+<<<<<<< HEAD:GMS-JEDI-2.0-Flipkart-Java-Project/src/com/flipkart/client/CustomerMenu.java
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import com.flipkart.bean.Gym;
+=======
+import java.util.List;
+import java.util.Scanner;
+
+import com.flipkart.bean.Customer;
+import com.flipkart.bean.User;
+>>>>>>> 032679d20c8ddcd305a3de852d09c6373afb444a:GMS-JEDI-2.0-Flipkart-Java-Project/src/com/flipkart/client/GMSCustomerMenu.java
 import com.flipkart.service.BookingSlotService;
 import com.flipkart.service.CustomerService;
 import com.flipkart.service.CustomerInterface;
@@ -15,8 +23,12 @@ import com.flipkart.service.CustomerInterface;
 /**
  * 
  */
+<<<<<<< HEAD:GMS-JEDI-2.0-Flipkart-Java-Project/src/com/flipkart/client/CustomerMenu.java
 public class CustomerMenu {
 	public static List<Gym> gymnasiums = new ArrayList<Gym>();
+=======
+public class GMSCustomerMenu {
+>>>>>>> 032679d20c8ddcd305a3de852d09c6373afb444a:GMS-JEDI-2.0-Flipkart-Java-Project/src/com/flipkart/client/GMSCustomerMenu.java
 	public void showCustomerMenu(String username) {
 		Scanner in = new Scanner(System.in);
 		System.out.println("Menu:");
@@ -77,5 +89,30 @@ public class CustomerMenu {
 			System.out.println("logged out!");
 			break;
 		}
+	}
+	
+	public void customerRegistration(List<User> userlist, List<Customer> customerlist) {
+		
+		Customer newCustomer = new Customer("1","1","1");
+		User newUser = new User("1","1","1");
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("Please enter your Name: ");
+		newCustomer.setCusName(in.nextLine());
+		System.out.println("Please enter your Address: ");
+		newCustomer.setAddress(in.nextLine());
+		System.out.println("Please set your password: ");
+		newCustomer.setPassword(in.next());
+		newUser.setPassword(newCustomer.getPassword());
+		System.out.println("Please enter your username: ");
+		newCustomer.setUserId(in.next());
+		newUser.setUserId(newCustomer.getUserId());
+		newCustomer.setRole("customer");
+		newUser.setRole("customer");
+		customerlist.add(newCustomer);
+		userlist.add(newUser);
+		System.out.println("New Customer Added");
+//	
+		
 	}
 }
