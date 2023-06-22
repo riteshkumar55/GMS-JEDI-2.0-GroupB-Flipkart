@@ -66,7 +66,13 @@ public class GMSCustomerMenu {
 			break;
 		case 2:
 			System.out.println("Your Slot Bookings:");
-			cusSer.showAllBookings(username);
+			List<Booking> bookings = cusSer.showAllBookings(username);
+			System.out.println(username + " " + bookings.size());
+			for(Booking booking : bookings) {
+				System.out.println(booking.getBooking_id() + "  " + booking.getSlot_id() + "  " + booking.getDate());
+			}
+			
+			
 			break;
 		case 3:
 			cusSer.showAllBookings(username);
