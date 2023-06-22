@@ -23,7 +23,6 @@ public class CustomerService implements CustomerInterface{
 		return gym;
 	}
 	public List<Booking> showAllBookings(String username) {
-//		BookingGMSDao BookingDao = new BookingGMSDAOImpl();
 		BookingGMSDao bookingDao = new BookingGMSDAOImpl();
 		List<Booking> bookings = bookingDao.getAllBookings(username);
 		return bookings;

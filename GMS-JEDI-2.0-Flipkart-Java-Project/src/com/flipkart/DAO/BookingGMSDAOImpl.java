@@ -10,11 +10,11 @@ import java.util.List;
 
 import com.flipkart.bean.Booking;
 import com.flipkart.bean.Gym;
-import com.flipkart.utils.JDBC;
+import com.flipkart.utils.DBUtil;
 
 public class BookingGMSDAOImpl implements BookingGMSDao {
 	public List<Booking> getAllBookings(String custId) {
-		Connection conn = JDBC.getConnection();
+		Connection conn = DBUtil.getConnection();
 		try {
 			String sql = "SELECT * FROM Booking WHERE customer_id = ? ";
 			PreparedStatement stmt = conn.prepareStatement(sql);
@@ -31,6 +31,18 @@ public class BookingGMSDAOImpl implements BookingGMSDao {
 			se.printStackTrace();
 		}
 		return null;
+	}
+
+	@Override
+	public boolean bookSlot(String customer_id, String slot_id) {
+		Connection conn = DBUtil.getConnection();
+		try {
+			String sql = "INSERT INTO Booking (booking_id, slot_id, customer_id,date) VALUES()";
+		}
+		catch(SQLException se) {
+			se.printStackTrace();
+		}
+		return false;
 	}
 
 

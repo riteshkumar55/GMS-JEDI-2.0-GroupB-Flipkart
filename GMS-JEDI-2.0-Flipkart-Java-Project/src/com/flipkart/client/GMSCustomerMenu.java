@@ -32,12 +32,12 @@ public class GMSCustomerMenu {
 			int slotNo = -1;
 			while(slotNo<0) {
 				List<Gym> gymnasiums = cusSer.showAllGym();
-				System.out.println("Name \t Address \t Total Slots Number of Machines");
+				System.out.println("Name \t Address \t No. of Machines Total Slots");
 				for(Gym gym: gymnasiums) {
 					System.out.printf("%-5s\t", gym.getGymName());
-					System.out.printf("%-10s\t", gym.getAddress());
-					System.out.printf("%-3d\t", gym.getTotSlots());
-					System.out.printf("%-3d\n", gym.getNumberOfMachines());
+					System.out.printf("%-8s\t", gym.getAddress());
+					System.out.printf("%-10d\t", gym.getNumberOfMachines());
+					System.out.printf("%-2d\n", gym.getTotSlots());
 				}
 				System.out.println("Please Select the gym: ");
 				int gymNo = in.nextInt();
@@ -45,7 +45,7 @@ public class GMSCustomerMenu {
 				List<Slot> slots = slotSer.getSlotsOfGym(selected_gym.getGymId());
 				
 				System.out.println("1. Please select the slot you want to book: ");
-				System.out.println("Day \t Time \t Availabe Seats");
+				System.out.println("Day \t\t Time \t Availabe Seats");
 				for(Slot st: slots) {
 					System.out.printf("%-3tD\t", st.getDay());
 					System.out.printf("%-5d\t", st.getSlotTime());
@@ -69,7 +69,6 @@ public class GMSCustomerMenu {
 		case 2:
 			System.out.println("Your Slot Bookings:");
 			List<Booking> bookings = cusSer.showAllBookings(username);
-			System.out.println(username + " " + bookings.size());
 			for(Booking booking : bookings) {
 				System.out.println(booking.getBooking_id() + "  " + booking.getSlot_id() + "  " + booking.getDate());
 			}
@@ -97,7 +96,7 @@ public class GMSCustomerMenu {
 		
 		RoleGMSInterface roleGMSSer = new RoleGMSService();
 		
-		Customer newCustomer = new Customer("1","1","1");
+		Customer newCustomer = new Customer("1","1",2,"1");
 		User newUser = new User();
 		Scanner in = new Scanner(System.in);
 		

@@ -7,8 +7,8 @@ package com.flipkart.bean;
  * 
  */
 public class Customer extends User{
-	public Customer(String userId, String password, String role) {
-		super(userId, password, role);
+	public Customer(String userId, String password, int roleId, String name) {
+		super(userId, password, roleId, name);
 	
 	}
 	private String cusName;

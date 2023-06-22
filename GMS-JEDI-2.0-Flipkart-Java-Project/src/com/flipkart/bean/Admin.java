@@ -7,8 +7,8 @@ package com.flipkart.bean;
  * 
  */
 public class Admin extends User{
-	public Admin(String userId, String password, String role) {
-		super(userId, password, role);
+	public Admin(String userId, String password, int roleId, String name) {
+		super(userId, password, roleId, name);
 		// TODO Auto-generated constructor stub
 	}
 	private String admName;

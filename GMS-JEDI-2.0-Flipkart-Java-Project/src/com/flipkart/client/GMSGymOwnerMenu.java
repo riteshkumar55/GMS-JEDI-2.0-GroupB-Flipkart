@@ -44,7 +44,7 @@ public class GMSGymOwnerMenu {
 		Scanner in = new Scanner(System.in);
 		RoleGMSInterface roleGMSSer = new RoleGMSService();
 		
-		GymOwner newGymOwner = new GymOwner("1","1","1");
+		GymOwner newGymOwner = new GymOwner("1","1",3,"1");
 		User newUser = new User("1","1",1,"1");
 		
 		System.out.println("Please enter your Name: ");
