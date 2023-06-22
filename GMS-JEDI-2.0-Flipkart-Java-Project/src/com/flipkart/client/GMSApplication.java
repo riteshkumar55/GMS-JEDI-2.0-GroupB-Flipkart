@@ -117,7 +117,7 @@ public class GMSApplication {
 
 	public void gymownerRegistration() {
 		GMSGymOwnerMenu gymOwnerMenu = new GMSGymOwnerMenu();
-		gymOwnerMenu.gymOwnerRegistration(userList, gymOwnerList);
+//		gymOwnerMenu.gymOwnerRegistration(userList, gymOwnerList);
 		
 	}
 

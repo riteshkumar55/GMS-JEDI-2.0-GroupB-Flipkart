@@ -13,7 +13,7 @@ public class CustomerService implements CustomerInterface{
 		List<Gym> gymnasiums = GMSDao.getAllGyms();
 		return gymnasiums;
 	}
-	public void showGymDetails(int gymNo) {
+	public Gym showGymDetails(int gymNo) {
 		System.out.println("Gym" + gymNo);
 		System.out.println("xyz");
 		System.out.println("Slot1");
@@ -22,6 +22,7 @@ public class CustomerService implements CustomerInterface{
 		System.out.println("Slot4");
 		System.out.println("Slot5");
 		System.out.println("Slot6");
+		return null;
 	}
 	public void showAllBookings(String username) {
 		

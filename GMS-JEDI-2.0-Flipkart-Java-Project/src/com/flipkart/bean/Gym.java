@@ -21,6 +21,9 @@ public class Gym {
 		this.seats = seats;
 		this.gymOwnerId = gymOwnerId;
 	}
+	public Gym() {
+		// TODO Auto-generated constructor stub
+	}
 	public String getGstNo() {
 		return gstNo;
 	}

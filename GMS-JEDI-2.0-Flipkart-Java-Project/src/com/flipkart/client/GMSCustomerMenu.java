@@ -46,7 +46,8 @@ public class GMSCustomerMenu {
 				}
 				System.out.println("Please Select the gym: ");
 				int gymNo = in.nextInt();
-				cusSer.showGymDetails(gymNo);
+				Gym selected_gym = gymnasiums.get(gymNo);
+				Gym selected_gym_details = cusSer.showGymDetails(selected_gym.getGymId());
 				System.out.println("1. Please select the slot you want to book: ");
 				System.out.println("2. Back(enter -1)\n");
 				System.out.println("Enter your choice: ");
