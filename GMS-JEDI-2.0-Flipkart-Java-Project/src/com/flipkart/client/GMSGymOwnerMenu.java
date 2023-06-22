@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.flipkart.service.GymOwnerService;
+import com.flipkart.service.RoleGMSInterface;
+import com.flipkart.service.RoleGMSService;
 import com.flipkart.bean.Customer;
 import com.flipkart.bean.Gym;
 import com.flipkart.bean.GymOwner;
@@ -40,9 +42,10 @@ public class GMSGymOwnerMenu {
 
 	public void gymOwnerRegistration(List<User> userList, List<GymOwner> gymOwnerList) {
 		Scanner in = new Scanner(System.in);
+		RoleGMSInterface roleGMSSer = new RoleGMSService();
 		
 		GymOwner newGymOwner = new GymOwner("1","1","1");
-		User newUser = new User("1","1","1");
+		User newUser = new User("1","1",1,"1");
 		
 		System.out.println("Please enter your Name: ");
 		newGymOwner.setOwnerName(in.nextLine());
@@ -54,7 +57,7 @@ public class GMSGymOwnerMenu {
 		System.out.println("Please enter your username: ");
 		newGymOwner.setUsername(in.next());
 		newUser.setUsername(newGymOwner.getUsername());
-		newGymOwner.setRole("gymOwner");
+		newGymOwner.setRoleId(roleGMSSer.getRoleIdByName("gymOwner"));
 		System.out.println("Enter GST No");
 		newGymOwner.setAadharNo(in.next());
 		System.out.println("Enter no of gyms");
@@ -77,7 +80,7 @@ public class GMSGymOwnerMenu {
 			allGyms.add(newGym);
 		}
 		newGymOwner.setAllGym(allGyms);
-		newUser.setRole("gymOwner");
+		newUser.setRoleId(roleGMSSer.getRoleIdByName("gymOwner"));
 		gymOwnerList.add(newGymOwner);
 		userList.add(newUser);
 		System.out.println("New GymOwner Added");

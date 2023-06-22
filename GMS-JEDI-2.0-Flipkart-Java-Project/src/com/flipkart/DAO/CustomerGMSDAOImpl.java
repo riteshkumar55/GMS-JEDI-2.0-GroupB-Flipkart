@@ -8,7 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import com.flipkart.bean.Customer;
-import com.flipkart.bean.User;
 import com.flipkart.utils.JDBC;
 
 /**
