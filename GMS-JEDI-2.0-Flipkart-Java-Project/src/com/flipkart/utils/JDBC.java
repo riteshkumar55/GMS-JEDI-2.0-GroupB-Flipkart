@@ -14,8 +14,8 @@ public class JDBC {
 	static final String DB_URL = "jdbc:mysql://localhost/GMS_DB";
 
 	// Database credentials
-	static final String USER = "deepak";
-	static final String PASS = "pass#2001";
+	static final String USER = "root";
+	static final String PASS = "Root@1234";
 
 	public static Connection getConnection() {
 		Connection conn = null;
