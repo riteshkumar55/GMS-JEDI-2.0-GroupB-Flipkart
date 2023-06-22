@@ -5,14 +5,11 @@ package com.flipkart.client;
 
 import java.util.*;
 import java.util.Scanner;
-import com.flipkart.bean.Gym;
-import com.flipkart.bean.Customer;
-import com.flipkart.bean.User;
+
 import com.flipkart.service.BookingSlotService;
 import com.flipkart.service.CustomerService;
 import com.flipkart.service.CustomerInterface;
 import com.flipkart.bean.*;
-import java.util.*;
 import com.flipkart.service.*;
 
 /**
@@ -31,6 +28,7 @@ public class GMSCustomerMenu {
 		
 		int choiceCus = in.nextInt();
 		CustomerInterface cusSer = new CustomerService();
+		SlotGMSInterface slotSer = new SlotGMSService();
 		
 		switch(choiceCus) {
 		case 1:
@@ -47,9 +45,15 @@ public class GMSCustomerMenu {
 				System.out.println("Please Select the gym: ");
 				int gymNo = in.nextInt();
 				Gym selected_gym = gymnasiums.get(gymNo);
-				Gym selected_gym_details = cusSer.showGymDetails(selected_gym.getGymId());
-				System.out.println(selected_gym_details);
+				List<Slot> slots = slotSer.getSlotsOfGym(selected_gym.getGymId());
+				
 				System.out.println("1. Please select the slot you want to book: ");
+				System.out.println("Day \t Time \t Availabe Seats");
+				for(Slot st: slots) {
+					System.out.printf("%-3tD\t", st.getDay());
+					System.out.printf("%-5d\t", st.getSlotTime());
+					System.out.printf("%-3d\n", st.getAvailSeats());
+				}
 				System.out.println("2. Back(enter -1)\n");
 				System.out.println("Enter your choice: ");
 				slotNo = in.nextInt();
@@ -89,7 +93,7 @@ public class GMSCustomerMenu {
 	public void customerRegistration(List<User> userList, List<Customer> customerList) {
 		
 		Customer newCustomer = new Customer("1","1","1");
-		User newUser = new User("1","1","1");
+		User newUser = new User();
 		Scanner in = new Scanner(System.in);
 		
 		System.out.println("Please enter your Name: ");
@@ -102,8 +106,8 @@ public class GMSCustomerMenu {
 		System.out.println("Please enter your username: ");
 		newCustomer.setUsername(in.next());
 		newUser.setUsername(newCustomer.getUsername());
-		newCustomer.setRole("customer");
-		newUser.setRole("customer");
+		newCustomer.setRoleId(2);
+		newUser.setRoleId(2);
 		
 //		customerList.add(newCustomer);
 //		userList.add(newUser);

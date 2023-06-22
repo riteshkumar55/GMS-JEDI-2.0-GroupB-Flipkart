@@ -19,7 +19,7 @@ public class SlotGMSDAOImpl implements SlotGMSDao {
 			stmt.setLong(1, gymId);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {		
-				Slot slot = new Slot();
+				Slot slot = new Slot(rs.getInt("slot_id"), rs.getInt("slot_time"), rs.getInt("available_seats"),rs.getInt("gym_id"),rs.getDate("day"));
 				slots.add(slot);
 			}
 			return slots;
