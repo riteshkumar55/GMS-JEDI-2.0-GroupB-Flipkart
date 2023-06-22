@@ -10,7 +10,6 @@ import java.util.List;
  */
 public class GymOwner extends User{
 	public GymOwner(String userId, String password, String role) {
-		super(userId, password, role);
 		// TODO Auto-generated constructor stub
 	}
 	public List<Gym> getAllGym() {

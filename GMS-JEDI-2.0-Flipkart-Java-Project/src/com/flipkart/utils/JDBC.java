@@ -15,7 +15,11 @@ public class JDBC {
 
 	// Database credentials
 	static final String USER = "root";
+<<<<<<< Updated upstream
 	static final String PASS = "Root@1234";
+=======
+	static final String PASS = "Suman@123456";
+>>>>>>> Stashed changes
 
 	public static Connection getConnection() {
 		Connection conn = null;

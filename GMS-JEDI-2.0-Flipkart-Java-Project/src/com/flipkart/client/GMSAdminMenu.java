@@ -11,8 +11,9 @@ import com.flipkart.service.*;
  * 
  */
 public class GMSAdminMenu {
-	public void showAdminMenu() {
+	public void showAdminMenu(String username) {
 		Scanner in = new Scanner(System.in);
+		System.out.println("Welcome " + username + " to FlipFit\n");
 		System.out.println("Menu:");
 		System.out.println("1. Approve Gym Center");
 		System.out.println("2. Logout\n");
@@ -34,7 +35,7 @@ public class GMSAdminMenu {
 			}
 
 		case 2:
-			System.out.println("logged out!");
+			System.out.println("logged out!\n");
 		}
 	}
 }

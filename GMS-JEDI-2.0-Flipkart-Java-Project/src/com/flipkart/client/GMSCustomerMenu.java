@@ -15,6 +15,7 @@ import com.flipkart.service.*;
 public class GMSCustomerMenu {
 	public void showCustomerMenu(String username) {
 		Scanner in = new Scanner(System.in);
+		System.out.println("Welcome " + username + " to FlipFit\n");
 		System.out.println("Menu:");
 		System.out.println("1. Show all gym");
 		System.out.println("2. Show all slot bookings");
@@ -88,7 +89,7 @@ public class GMSCustomerMenu {
 			}
 			break;
 		case 4:
-			System.out.println("logged out!");
+			System.out.println("logged out!\n");
 			break;
 		}
 	}
