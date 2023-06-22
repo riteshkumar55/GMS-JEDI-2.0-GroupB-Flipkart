@@ -98,12 +98,12 @@ public class GMSApplication {
 
 			case "Gym Owner":
 				GMSGymOwnerMenu gymOwnerMenu = new GMSGymOwnerMenu();
-				gymOwnerMenu.showGymOwnerMenu();
+				gymOwnerMenu.showGymOwnerMenu(username);
 				break;
 
 			case "Admin":
 				GMSAdminMenu adminMenu = new GMSAdminMenu();
-				adminMenu.showAdminMenu();
+				adminMenu.showAdminMenu(username);
 				break;
 			
 			default:

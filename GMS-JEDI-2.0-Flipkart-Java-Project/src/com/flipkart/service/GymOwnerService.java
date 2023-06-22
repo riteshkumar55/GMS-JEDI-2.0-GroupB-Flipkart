@@ -1,28 +1,23 @@
 package com.flipkart.service;
-import com.flipkart.bean.*;
+
+import com.flipkart.bean.Gym;
+
 public class GymOwnerService implements GymOwnerInterface{
-	
+	public boolean OwnerRegister() {
+		return true;
+	}
+	public boolean addGymCentre() {
+		return true;
+	}
 	public boolean addGym(){
 		Gym newGym = new Gym();
 		return true;
 	}
 	public boolean removeGym(){
-		return false;
+		return true;
 	}
 	public void viewGyms(){
 		
-	}
-
-	@Override
-	public boolean OwnerRegister() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean addGymCentre() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 	
 }

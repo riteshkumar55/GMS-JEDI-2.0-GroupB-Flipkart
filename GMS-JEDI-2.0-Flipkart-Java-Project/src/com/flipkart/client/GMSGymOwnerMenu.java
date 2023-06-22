@@ -20,8 +20,9 @@ import com.flipkart.service.GymOwnerInterface;
  * 
  */
 public class GMSGymOwnerMenu {
-	public void showGymOwnerMenu() {
+	public void showGymOwnerMenu(String username) {
 		Scanner in = new Scanner(System.in);
+		System.out.println("Welcome " + username + " to FlipFit\n");
 		System.out.println("Menu:");
 		System.out.println("1. Add Gym Center");
 		System.out.println("2. Logout\n");
@@ -35,7 +36,7 @@ public class GMSGymOwnerMenu {
 			gymOwnSer.addGymCentre();
 			break;
 		case 2:
-			System.out.println("Logged Out!");
+			System.out.println("Logged Out!\n");
 			break;
 		}
 	}
