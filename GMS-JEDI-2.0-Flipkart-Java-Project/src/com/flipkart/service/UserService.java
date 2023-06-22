@@ -16,6 +16,11 @@ public class UserService implements UserInterface{
 		}
 		return null;
 	}
+	public void userRegistration(User newUser){
+		UserGMSDao userDao = new UserGMSDAOImpl();
+		userDao.createUser(newUser);
+		return ;
+	}
 	public boolean logout() {
 		return true;
 	}
