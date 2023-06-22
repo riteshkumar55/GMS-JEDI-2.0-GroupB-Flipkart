@@ -20,7 +20,7 @@ public class CustomerGMSDAOImpl implements CustomerGMSDao {
 		String sql = "INSERT INTO Customer (UserId, Password, role, CusName, Address) Values(?,?,?,?,?);";
 		try {			
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setString(1, customer.getUserId());
+			stmt.setString(1, customer.getUsername());
 			stmt.setString(2, customer.getPassword());
 			stmt.setString(3, customer.getRole());
 			stmt.setString(4, customer.getCusName());

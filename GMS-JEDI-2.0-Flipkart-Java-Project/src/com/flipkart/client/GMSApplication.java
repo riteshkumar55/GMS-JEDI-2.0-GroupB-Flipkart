@@ -85,11 +85,12 @@ public class GMSApplication {
 		System.out.println("Enter your password: ");
 		String password = in.next();
 		UserInterface userSer = new UserService();
+		RoleGMSInterface rolSer = new RoleGMSService();
 		User user = userSer.login(username, password);
 		if (user!=null) {
-			String role = user.getRole();
+			String role = rolSer.getRoleNameById(user.getRoleId());
 			switch (role) {
-			case "customer":
+			case "Customer":
 
 				GMSCustomerMenu cusMenu = new GMSCustomerMenu();
 				cusMenu.showCustomerMenu(username);
@@ -103,6 +104,10 @@ public class GMSApplication {
 			case "Admin":
 				GMSAdminMenu adminMenu = new GMSAdminMenu();
 				adminMenu.showAdminMenu();
+				break;
+			
+			default:
+				System.out.println("Role not found");
 				break;
 			}
 		} else {

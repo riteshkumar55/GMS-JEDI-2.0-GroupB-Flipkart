@@ -37,7 +37,7 @@ public class GMSCustomerMenu {
 			int slotNo = -1;
 			while(slotNo<0) {
 				List<Gym> gymnasiums = cusSer.showAllGym();
-				System.out.println("Name \t Address \t\t Total Slots Number of Machines");
+				System.out.println("Name \t Address \t Total Slots Number of Machines");
 				for(Gym gym: gymnasiums) {
 					System.out.printf("%-5s\t", gym.getGymName());
 					System.out.printf("%-10s\t", gym.getAddress());
@@ -99,8 +99,8 @@ public class GMSCustomerMenu {
 		newCustomer.setPassword(in.next());
 		newUser.setPassword(newCustomer.getPassword());
 		System.out.println("Please enter your username: ");
-		newCustomer.setUserId(in.next());
-		newUser.setUserId(newCustomer.getUserId());
+		newCustomer.setUsername(in.next());
+		newUser.setUsername(newCustomer.getUsername());
 		newCustomer.setRole("customer");
 		newUser.setRole("customer");
 //		customerList.add(newCustomer);

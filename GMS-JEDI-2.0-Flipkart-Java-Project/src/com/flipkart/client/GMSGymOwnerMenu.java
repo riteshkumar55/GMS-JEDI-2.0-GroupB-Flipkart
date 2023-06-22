@@ -52,8 +52,8 @@ public class GMSGymOwnerMenu {
 		newGymOwner.setPassword(in.next());
 		newUser.setPassword(newGymOwner.getPassword());
 		System.out.println("Please enter your username: ");
-		newGymOwner.setUserId(in.next());
-		newUser.setUserId(newGymOwner.getUserId());
+		newGymOwner.setUsername(in.next());
+		newUser.setUsername(newGymOwner.getUsername());
 		newGymOwner.setRole("gymOwner");
 		System.out.println("Enter GST No");
 		newGymOwner.setAadharNo(in.next());
