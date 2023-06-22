@@ -8,9 +8,6 @@ import java.util.Scanner;
 import com.flipkart.bean.Gym;
 import com.flipkart.bean.Customer;
 import com.flipkart.bean.User;
-import com.flipkart.service.BookingSlotService;
-import com.flipkart.service.CustomerService;
-import com.flipkart.service.CustomerInterface;
 import com.flipkart.bean.*;
 import java.util.*;
 import com.flipkart.service.*;
@@ -88,8 +85,10 @@ public class GMSCustomerMenu {
 	
 	public void customerRegistration(List<User> userList, List<Customer> customerList) {
 		
+		RoleGMSInterface roleGMSSer = new RoleGMSService();
+		
 		Customer newCustomer = new Customer("1","1","1");
-		User newUser = new User("1","1","1");
+		User newUser = new User("1","1",1,"1");
 		Scanner in = new Scanner(System.in);
 		
 		System.out.println("Please enter your Name: ");
@@ -102,11 +101,8 @@ public class GMSCustomerMenu {
 		System.out.println("Please enter your username: ");
 		newCustomer.setUsername(in.next());
 		newUser.setUsername(newCustomer.getUsername());
-		newCustomer.setRole("customer");
-		newUser.setRole("customer");
-		
-//		customerList.add(newCustomer);
-//		userList.add(newUser);
+		newCustomer.setRoleId(roleGMSSer.getRoleIdByName("customer"));
+		newUser.setRoleId(roleGMSSer.getRoleIdByName("customer"));
 		
 		CustomerInterface cusSer = new CustomerService();
 		cusSer.customerRegistration(newCustomer);
