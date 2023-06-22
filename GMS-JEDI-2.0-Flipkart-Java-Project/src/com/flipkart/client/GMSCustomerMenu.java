@@ -58,7 +58,8 @@ public class GMSCustomerMenu {
 				
 				if(slotNo != -1) {
 					BookingSlotService bookSlot = new BookingSlotService();
-					if(bookSlot.bookSlot(username,gymNo,slotNo)) {
+					Slot selected_slot = slots.get(slotNo);
+					if(bookSlot.bookSlot(username,selected_slot.getSlotId())) {
 						System.out.println("Slot booked successfully!");
 					}
 					else {
@@ -93,33 +94,30 @@ public class GMSCustomerMenu {
 		}
 	}
 	
-	public void customerRegistration(List<User> userList, List<Customer> customerList) {
+	public void customerRegistration() {
 		
 		RoleGMSInterface roleGMSSer = new RoleGMSService();
 		
-		Customer newCustomer = new Customer("1","1",2,"1");
-		User newUser = new User();
+		Customer newCustomer = new Customer();
 		Scanner in = new Scanner(System.in);
 		
+		System.out.println("Please enter your Username: ");
+		newCustomer.setUsername(in.next());
+		System.out.println("Please set your Password: ");
+		newCustomer.setPassword(in.next());
+		newCustomer.setRoleId(roleGMSSer.getRoleIdByName("Customer"));
 		System.out.println("Please enter your Name: ");
-		newCustomer.setCusName(in.next());
+		newCustomer.setName(in.next());
 		System.out.println("Please enter your Address: ");
 		newCustomer.setAddress(in.next());
-		System.out.println("Please set your password: ");
-		newCustomer.setPassword(in.next());
-		newUser.setPassword(newCustomer.getPassword());
-		System.out.println("Please enter your username: ");
-		newCustomer.setUsername(in.next());
-		newUser.setUsername(newCustomer.getUsername());
-		
-		newCustomer.setRoleId(roleGMSSer.getRoleIdByName("customer"));
-		newUser.setRoleId(roleGMSSer.getRoleIdByName("customer"));
+		System.out.println("Please enter your Phone: ");
+		newCustomer.setPhone(in.next());
+		System.out.println("Please enter your Gender: ");
+		newCustomer.setGender(in.next());
 		
 		CustomerInterface cusSer = new CustomerService();
 		cusSer.customerRegistration(newCustomer);
-		UserInterface userSer = new UserService();
-		userSer.userRegistration(newUser);
-		
+	
 		System.out.println("New Customer Added");
 	}
 }

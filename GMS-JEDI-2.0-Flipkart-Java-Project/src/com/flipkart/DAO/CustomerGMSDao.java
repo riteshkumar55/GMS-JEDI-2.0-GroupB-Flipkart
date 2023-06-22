@@ -10,7 +10,7 @@ import com.flipkart.bean.Customer;
  * 
  */
 public interface CustomerGMSDao {
-	void createCustomer(Customer customer);
+	public boolean createCustomer(Customer customer);
 
 
 }

@@ -13,5 +13,5 @@ import com.flipkart.bean.Booking;
  */
 public interface BookingGMSDao {
 	public List<Booking> getAllBookings(String custId);
-	public boolean bookSlot(String customer_id, String slot_id) throws SQLException;
+	public boolean bookSlot(String customer_id, int slot_id);
 }

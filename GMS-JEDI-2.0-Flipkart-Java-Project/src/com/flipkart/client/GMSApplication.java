@@ -95,7 +95,7 @@ public class GMSApplication {
 
 	public void customerRegistration() {
 		GMSCustomerMenu cusMenu = new GMSCustomerMenu();
-		cusMenu.customerRegistration(userList, customerList);
+		cusMenu.customerRegistration();
 	}
 
 	public void gymownerRegistration() {

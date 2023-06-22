@@ -7,17 +7,15 @@ package com.flipkart.bean;
  * 
  */
 public class Customer extends User{
-	public Customer(String userId, String password, int roleId, String name) {
-		super(userId, password, roleId, name);
-	
-	}
-	private String cusName;
+	private String customerId;
 	private String address;
-	public String getCusName() {
-		return cusName;
+	private String phone;
+	private String gender;
+	public String getCustomerId() {
+		return customerId;
 	}
-	public void setCusName(String cusName) {
-		this.cusName = cusName;
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
 	}
 	public String getAddress() {
 		return address;
@@ -25,5 +23,34 @@ public class Customer extends User{
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public Customer(String username, String password, int roleId, String name, String customerId, String address,
+			String phone, String gender) {
+		super(username, password, roleId, name);
+		this.customerId = customerId;
+		this.address = address;
+		this.phone = phone;
+		this.gender = gender;
+	}
+	public Customer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Customer(String username, String password, int roleId, String name) {
+		super(username, password, roleId, name);
+		// TODO Auto-generated constructor stub
+	}
+	
 	
 }
