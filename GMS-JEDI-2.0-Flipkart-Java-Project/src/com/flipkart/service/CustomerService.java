@@ -24,12 +24,7 @@ public class CustomerService implements CustomerInterface{
 		System.out.println("Slot6");
 	}
 	public void showAllBookings(String username) {
-		System.out.println("Booking1");
-		System.out.println("Booking2");
-		System.out.println("Booking3");
-		System.out.println("Booking4");
-		System.out.println("Booking5");
-		System.out.println("Booking6");
+		
 	}
 	public boolean cancelBooking(String username , int bookingNo) {
 		return true;
