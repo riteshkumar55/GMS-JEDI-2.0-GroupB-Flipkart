@@ -1,15 +1,19 @@
 package com.flipkart.service;
 
+import java.util.List;
+
+import com.flipkart.bean.Gym;
+
 public class CustomerService implements CustomerInterface{
 	
-	public void showAllGym() {
-		System.out.println("Gym1");
-		System.out.println("Gym2");
-		System.out.println("Gym3");
-		System.out.println("Gym4");
-		System.out.println("Gym5");
-		System.out.println("Gym6");
-		
+	public void showAllGym(List<Gym> gymnasiums) {
+		System.out.println("Name Address Total Slots Number of Machines");
+		for(Gym gym: gymnasiums) {
+			System.out.printf("%-5s\t", gym.getGymName());
+			System.out.printf("%-10s\t", gym.getAddress());
+			System.out.printf("%-3d\t", gym.getTotSlots());
+			System.out.printf("%-3d\n", gym.getNumberOfMachines());
+		}
 	}
 	public void showGymDetails(int gymNo) {
 		System.out.println("Gym" + gymNo);
@@ -30,6 +34,9 @@ public class CustomerService implements CustomerInterface{
 		System.out.println("Booking6");
 	}
 	public boolean cancelBooking(String username , int bookingNo) {
+		return true;
+	}
+	public boolean customerRegistration() {
 		return true;
 	}
 	

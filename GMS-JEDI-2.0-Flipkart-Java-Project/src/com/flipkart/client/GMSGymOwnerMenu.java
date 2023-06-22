@@ -31,4 +31,9 @@ public class GMSGymOwnerMenu {
 			break;
 		}
 	}
+	public void showGymRegistrationMenu() {
+		Scanner in = new Scanner(System.in);
+		String owner_id = in.next();
+		
+	}
 }

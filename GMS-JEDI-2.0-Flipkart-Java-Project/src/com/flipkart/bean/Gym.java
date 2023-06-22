@@ -12,9 +12,29 @@ public class Gym {
 	private String gstNo;
 	private String address;
 	private int totSlots;
-	//No. of machines
-//	private Slot slots[7][];
+	private int numberOfMachines;
+	private Slot slots[];
 	private int seats;
+	
+	public Gym(int gymId, String gymName, String gstNo, String address, int totSlots) {
+		this.gymId = gymId;
+		this.gymName = gymName;
+		this.gstNo = gstNo;
+		this.address = address;
+		this.totSlots = totSlots;
+	}
+	public String getGstNo() {
+		return gstNo;
+	}
+	public void setGstNo(String gstNo) {
+		this.gstNo = gstNo;
+	}
+	public Slot[] getSlots() {
+		return slots;
+	}
+	public void setSlots(Slot[] slots) {
+		this.slots = slots;
+	}
 	public int getGymId() {
 		return gymId;
 	}
@@ -45,5 +65,12 @@ public class Gym {
 	public void setSeats(int seats) {
 		this.seats = seats;
 	}
+	public int getNumberOfMachines() {
+		return numberOfMachines;
+	}
+	public void setNumberOfMachines(int numberOfMachines) {
+		this.numberOfMachines = numberOfMachines;
+	}
+	
 	
 }
