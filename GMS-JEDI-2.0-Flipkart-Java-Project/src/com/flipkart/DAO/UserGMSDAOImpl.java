@@ -2,19 +2,19 @@
  * 
  */
 package com.flipkart.DAO;
-import com.flipkart.utils.DBUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.util.List;
 import com.flipkart.bean.User;
+import com.flipkart.utils.DBUtils;
 /**
  * 
  */
 public class UserGMSDAOImpl implements UserGMSDao{
 	public void createUser(User user) {
-		Connection conn = DBUtil.getConnection();
+		Connection conn = DBUtils.getConnection();
 		String sql = "INSERT INTO User (user_id, password, role_id, name) Values(?,?,?,?);";
 		try {			
 			PreparedStatement stmt = conn.prepareStatement(sql);
@@ -31,7 +31,7 @@ public class UserGMSDAOImpl implements UserGMSDao{
 
 	@Override
 	public User getUserByUsername(String userId) {
-		Connection conn = DBUtil.getConnection();
+		Connection conn = DBUtils.getConnection();
 		String sql = "SELECT * FROM User WHERE username=? LIMIT 1";
 		try {			
 			PreparedStatement stmt = conn.prepareStatement(sql);

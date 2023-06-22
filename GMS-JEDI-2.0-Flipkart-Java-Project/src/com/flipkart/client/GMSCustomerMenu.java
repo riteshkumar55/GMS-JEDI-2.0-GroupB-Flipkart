@@ -102,15 +102,16 @@ public class GMSCustomerMenu {
 		Scanner in = new Scanner(System.in);
 		
 		System.out.println("Please enter your Name: ");
-		newCustomer.setCusName(in.nextLine());
+		newCustomer.setCusName(in.next());
 		System.out.println("Please enter your Address: ");
-		newCustomer.setAddress(in.nextLine());
+		newCustomer.setAddress(in.next());
 		System.out.println("Please set your password: ");
 		newCustomer.setPassword(in.next());
 		newUser.setPassword(newCustomer.getPassword());
 		System.out.println("Please enter your username: ");
 		newCustomer.setUsername(in.next());
 		newUser.setUsername(newCustomer.getUsername());
+		
 		newCustomer.setRoleId(roleGMSSer.getRoleIdByName("customer"));
 		newUser.setRoleId(roleGMSSer.getRoleIdByName("customer"));
 		

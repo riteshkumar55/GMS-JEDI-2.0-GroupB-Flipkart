@@ -3,7 +3,8 @@ package com.flipkart.DAO;
 import java.util.ArrayList;
 import java.util.List;
 import com.flipkart.bean.Slot;
-import com.flipkart.utils.DBUtil;
+import com.flipkart.utils.DBUtils;
+
 import java.sql.*;
 
 public class SlotGMSDAOImpl implements SlotGMSDao {
@@ -11,7 +12,7 @@ public class SlotGMSDAOImpl implements SlotGMSDao {
 	@Override
 	public List<Slot> getSlotsOfGym(int gymId) {
 		// TODO Auto-generated method stub
-		Connection conn = DBUtil.getConnection();
+		Connection conn = DBUtils.getConnection();
 		String sql = "SELECT * FROM SLOT WHERE gym_id=?";
 		List<Slot> slots = new ArrayList<Slot>();
 		try {			

@@ -8,15 +8,15 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import com.flipkart.bean.Customer;
-import com.flipkart.utils.DBUtil;
+import com.flipkart.utils.DBUtils;
 
 /**
  * 
  */
 public class CustomerGMSDAOImpl implements CustomerGMSDao {
 	public void createCustomer(Customer customer) {
-		Connection conn = DBUtil.getConnection();
-		String sql = "INSERT INTO Customer (UserId, Password, role, CusName, Address) Values(?,?,?,?,?);";
+		Connection conn = DBUtils.getConnection();
+		String sql = "INSERT INTO Customer (user_id, Password, role, CusName, Address) Values(?,?,?,?,?);";
 		try {			
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, customer.getUsername());

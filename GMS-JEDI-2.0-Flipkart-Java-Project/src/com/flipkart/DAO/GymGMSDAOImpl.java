@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.flipkart.bean.Gym;
 import com.flipkart.bean.User;
-import com.flipkart.utils.DBUtil;
+import com.flipkart.utils.DBUtils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +15,7 @@ public class GymGMSDAOImpl implements GymGMSDao {
 
 	@Override
 	public List<Gym> getAllGyms() {
-		Connection conn = DBUtil.getConnection();
+		Connection conn = DBUtils.getConnection();
 		try {
 			String sql = "SELECT * FROM GYM";
 			PreparedStatement stmt = conn.prepareStatement(sql);
@@ -37,7 +37,7 @@ public class GymGMSDAOImpl implements GymGMSDao {
 
 	@Override
 	public Gym getGymById(int gymId) {
-		Connection conn = DBUtil.getConnection();
+		Connection conn = DBUtils.getConnection();
 		String sql = "SELECT * FROM Gym WHERE gymId=? LIMIT 1";
 		try {			
 			PreparedStatement stmt = conn.prepareStatement(sql);
@@ -75,7 +75,7 @@ public class GymGMSDAOImpl implements GymGMSDao {
 	}
 	
 	public void createGym(Gym gym) {
-		Connection conn = DBUtil.getConnection();
+		Connection conn = DBUtils.getConnection();
 		String sql = "INSERT INTO Gym (gym_id, gym_name, gst_no, address, tot_slots, number_of_machines, seats, gym_owner_id) Values(?,?,?,?,?,?,?,?);";
 		try {			
 			PreparedStatement stmt = conn.prepareStatement(sql);
