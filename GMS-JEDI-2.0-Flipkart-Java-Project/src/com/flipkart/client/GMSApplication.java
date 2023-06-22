@@ -23,6 +23,8 @@ public class GMSApplication {
 
 	public static List<Customer> customerList = new ArrayList<>();
 	
+	public static List<GymOwner> gymOwnerList = new ArrayList<>();
+	
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		GMSApplication gmsApplication = new GMSApplication();
@@ -105,6 +107,8 @@ public class GMSApplication {
 	}
 	
 	public void gymownerRegistration() {
+		GMSGymOwnerMenu gymOwnerMenu = new GMSGymOwnerMenu();
+		gymOwnerMenu.gymOwnerRegistration(userList, gymOwnerList);
 		
 	}
 	public void updatePassword() {

@@ -1,19 +1,11 @@
-/**
- * 
- */
 package com.flipkart.bean;
 
-/**
- * 
- */
 public class Gym {
 	private int gymId;
 	private String gymName;
 	private String gstNo;
 	private String address;
 	private int totSlots;
-	//No. of machines
-//	private Slot slots[7][];
 	private int seats;
 	public int getGymId() {
 		return gymId;
@@ -44,6 +36,12 @@ public class Gym {
 	}
 	public void setSeats(int seats) {
 		this.seats = seats;
+	}
+	public String getGstNo() {
+		return gstNo;
+	}
+	public void setGstNo(String gstNo) {
+		this.gstNo = gstNo;
 	}
 	
 }

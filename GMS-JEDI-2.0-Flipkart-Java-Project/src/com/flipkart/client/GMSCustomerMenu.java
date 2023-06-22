@@ -73,7 +73,7 @@ public class GMSCustomerMenu {
 		}
 	}
 	
-	public void customerRegistration(List<User> userlist, List<Customer> customerlist) {
+	public void customerRegistration(List<User> userList, List<Customer> customerList) {
 		
 		Customer newCustomer = new Customer("1","1","1");
 		User newUser = new User("1","1","1");
@@ -91,10 +91,8 @@ public class GMSCustomerMenu {
 		newUser.setUserId(newCustomer.getUserId());
 		newCustomer.setRole("customer");
 		newUser.setRole("customer");
-		customerlist.add(newCustomer);
-		userlist.add(newUser);
+		customerList.add(newCustomer);
+		userList.add(newUser);
 		System.out.println("New Customer Added");
-//	
-		
 	}
 }

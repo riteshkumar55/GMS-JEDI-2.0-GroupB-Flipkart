@@ -3,17 +3,33 @@
  */
 package com.flipkart.bean;
 
+import java.util.List;
+
 /**
  * 
  */
-public class Owner extends User{
-	public Owner(String userId, String password, String role) {
+public class GymOwner extends User{
+	public GymOwner(String userId, String password, String role) {
 		super(userId, password, role);
 		// TODO Auto-generated constructor stub
 	}
+	public List<Gym> getAllGym() {
+		return allGym;
+	}
+	public void setAllGym(List<Gym> allGym) {
+		this.allGym = allGym;
+	}
 	private String ownerName;
 	private String address;
-	private String allGym[];
+	private List<Gym> allGym;
+	private String AadharNo;
+
+	public String getAadharNo() {
+		return AadharNo;
+	}
+	public void setAadharNo(String aadharNo) {
+		AadharNo = aadharNo;
+	}
 	public String getOwnerName() {
 		return ownerName;
 	}
@@ -26,5 +42,5 @@ public class Owner extends User{
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
+
 }
