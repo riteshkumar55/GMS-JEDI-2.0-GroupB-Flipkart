@@ -3,6 +3,7 @@ package com.flipkart.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.flipkart.bean.Booking;
 import com.flipkart.bean.Customer;
 import com.flipkart.bean.Gym;
 import com.flipkart.bean.User;
@@ -21,7 +22,11 @@ public class CustomerService implements CustomerInterface{
 		Gym gym = GMSDao.getGymById(gymNo);
 		return gym;
 	}
-	public void showAllBookings(String username) {
+	public List<Booking> showAllBookings(String username) {
+//		BookingGMSDao BookingDao = new BookingGMSDAOImpl();
+		BookingGMSDao bookingDao = new BookingGMSDAOImpl();
+		List<Booking> bookings = bookingDao.getAllBookings(username);
+		return bookings;
 		
 	}
 	public boolean cancelBooking(String username , int bookingNo) {
