@@ -3,12 +3,9 @@
  */
 package com.flipkart.client;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.Scanner;
 import com.flipkart.bean.Gym;
-import java.util.List;
-import java.util.Scanner;
 import com.flipkart.bean.Customer;
 import com.flipkart.bean.User;
 import com.flipkart.service.BookingSlotService;

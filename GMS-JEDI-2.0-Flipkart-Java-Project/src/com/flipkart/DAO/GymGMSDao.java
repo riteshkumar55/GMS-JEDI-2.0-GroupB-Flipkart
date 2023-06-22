@@ -14,4 +14,6 @@ public interface GymGMSDao {
     List<Gym> getAllGyms();
     Gym getGymById(int gymId);
     void updateGym(Gym gym);
+    void removeGym(Gym gym);
+    void createGym(Gym gym);
 }

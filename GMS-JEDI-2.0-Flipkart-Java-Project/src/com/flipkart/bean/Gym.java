@@ -24,6 +24,7 @@ public class Gym {
 	public Gym() {
 		// TODO Auto-generated constructor stub
 	}
+
 	public String getGstNo() {
 		return gstNo;
 	}

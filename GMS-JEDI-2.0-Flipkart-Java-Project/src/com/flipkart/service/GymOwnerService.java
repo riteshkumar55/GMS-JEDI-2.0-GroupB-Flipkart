@@ -1,11 +1,15 @@
 package com.flipkart.service;
 
 public class GymOwnerService implements GymOwnerInterface{
-	public boolean OwnerRegister() {
-		return true;
+	public boolean addGym{
+		Gym newGym = new Gym();
+		
 	}
-	public boolean addGymCentre() {
-		return true;
+	public boolean removeGym{
+		
+	}
+	public void viewGyms{
+		
 	}
 	
 }
