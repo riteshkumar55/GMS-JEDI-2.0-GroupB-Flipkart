@@ -15,13 +15,17 @@ public class Gym {
 	private int numberOfMachines;
 	private Slot slots[];
 	private int seats;
+	private String gymOwnerId;
 	
-	public Gym(int gymId, String gymName, String gstNo, String address, int totSlots) {
+	public Gym(int gymId, String gymName, String gstNo, String address, int totSlots,int numberOfMachines, int seats, String gymOwnerId) {
 		this.gymId = gymId;
 		this.gymName = gymName;
 		this.gstNo = gstNo;
 		this.address = address;
 		this.totSlots = totSlots;
+		this.numberOfMachines = numberOfMachines;
+		this.seats = seats;
+		this.gymOwnerId = gymOwnerId;
 	}
 	public String getGstNo() {
 		return gstNo;
@@ -70,6 +74,12 @@ public class Gym {
 	}
 	public void setNumberOfMachines(int numberOfMachines) {
 		this.numberOfMachines = numberOfMachines;
+	}
+	public String getGymOwnerId() {
+		return gymOwnerId;
+	}
+	public void setGymOwnerId(String gymOwnerId) {
+		this.gymOwnerId = gymOwnerId;
 	}
 	
 	

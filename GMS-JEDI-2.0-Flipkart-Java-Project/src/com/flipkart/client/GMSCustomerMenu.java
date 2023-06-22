@@ -19,7 +19,6 @@ import com.flipkart.service.CustomerInterface;
  * 
  */
 public class GMSCustomerMenu {
-	public static List<Gym> gymnasiums = new ArrayList<Gym>();
 	public void showCustomerMenu(String username) {
 		Scanner in = new Scanner(System.in);
 		System.out.println("Menu:");
@@ -29,10 +28,6 @@ public class GMSCustomerMenu {
 		System.out.println("4. Logout\n");
 		System.out.println("Enter your choice: ");
 		// TODO Auto-generated method stub
-		for(int i=0;i<10;i++) {
-			Gym gm = new Gym(i,"Gym "+i,"GST_GYM_"+i,"Address_"+i,10);
-			gymnasiums.add(gm);
-		}
 		
 		int choiceCus = in.nextInt();
 		CustomerInterface cusSer = new CustomerService();
@@ -41,7 +36,14 @@ public class GMSCustomerMenu {
 		case 1:
 			int slotNo = -1;
 			while(slotNo<0) {
-				cusSer.showAllGym(gymnasiums);
+				List<Gym> gymnasiums = cusSer.showAllGym();
+				System.out.println("Name \t Address \t\t Total Slots Number of Machines");
+				for(Gym gym: gymnasiums) {
+					System.out.printf("%-5s\t", gym.getGymName());
+					System.out.printf("%-10s\t", gym.getAddress());
+					System.out.printf("%-3d\t", gym.getTotSlots());
+					System.out.printf("%-3d\n", gym.getNumberOfMachines());
+				}
 				System.out.println("Please Select the gym: ");
 				int gymNo = in.nextInt();
 				cusSer.showGymDetails(gymNo);

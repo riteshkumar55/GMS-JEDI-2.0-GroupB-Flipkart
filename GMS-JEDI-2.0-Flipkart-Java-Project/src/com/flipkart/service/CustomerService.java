@@ -1,19 +1,17 @@
 package com.flipkart.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.flipkart.bean.Gym;
+import com.flipkart.DAO.*;
 
 public class CustomerService implements CustomerInterface{
 	
-	public void showAllGym(List<Gym> gymnasiums) {
-		System.out.println("Name Address Total Slots Number of Machines");
-		for(Gym gym: gymnasiums) {
-			System.out.printf("%-5s\t", gym.getGymName());
-			System.out.printf("%-10s\t", gym.getAddress());
-			System.out.printf("%-3d\t", gym.getTotSlots());
-			System.out.printf("%-3d\n", gym.getNumberOfMachines());
-		}
+	public List<Gym> showAllGym() {
+		GymGMSDao GMSDao = new GymGMSDAOImpl();
+		List<Gym> gymnasiums = GMSDao.getAllGyms();
+		return gymnasiums;
 	}
 	public void showGymDetails(int gymNo) {
 		System.out.println("Gym" + gymNo);
