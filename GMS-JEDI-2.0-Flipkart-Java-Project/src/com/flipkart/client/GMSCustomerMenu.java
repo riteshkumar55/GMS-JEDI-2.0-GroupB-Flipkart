@@ -11,6 +11,9 @@ import com.flipkart.bean.User;
 import com.flipkart.service.BookingSlotService;
 import com.flipkart.service.CustomerService;
 import com.flipkart.service.CustomerInterface;
+import com.flipkart.bean.*;
+import java.util.*;
+import com.flipkart.service.*;
 
 /**
  * 
@@ -100,8 +103,15 @@ public class GMSCustomerMenu {
 		newUser.setUserId(newCustomer.getUserId());
 		newCustomer.setRole("customer");
 		newUser.setRole("customer");
-		customerList.add(newCustomer);
-		userList.add(newUser);
+//		customerList.add(newCustomer);
+//		userList.add(newUser);
+//		CustomerInterface cusSer = new CustomerService();
+		UserInterface userSer = new UserService();
+		userSer.userRegistration(newUser);
+		
+//		cusSer.customerRegistration(newUser,newCustomer);
+		
+		
 		System.out.println("New Customer Added");
 	}
 }

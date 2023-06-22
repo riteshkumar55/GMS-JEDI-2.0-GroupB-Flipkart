@@ -21,6 +21,7 @@ public class UserGMSDAOImpl implements UserGMSDao{
 			stmt.setString(1, user.getUserId());
 			stmt.setString(2, user.getPassword());
 			stmt.setString(3, user.getRole());
+		
 			stmt.executeUpdate();
 		}
 		catch(SQLException se) {

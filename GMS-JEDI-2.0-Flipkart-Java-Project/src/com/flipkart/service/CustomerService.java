@@ -3,7 +3,9 @@ package com.flipkart.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.flipkart.bean.Customer;
 import com.flipkart.bean.Gym;
+import com.flipkart.bean.User;
 import com.flipkart.DAO.*;
 
 public class CustomerService implements CustomerInterface{
@@ -30,7 +32,10 @@ public class CustomerService implements CustomerInterface{
 	public boolean cancelBooking(String username , int bookingNo) {
 		return true;
 	}
-	public boolean customerRegistration() {
+	public boolean customerRegistration(Customer newCustomer) {
+		CustomerGMSDao custDao = new CustomerGMSDAOImpl();
+		custDao.createCustomer(newCustomer);
+		
 		return true;
 	}
 	
