@@ -16,15 +16,10 @@ public class CustomerService implements CustomerInterface{
 		return gymnasiums;
 	}
 	public Gym showGymDetails(int gymNo) {
-		System.out.println("Gym" + gymNo);
-		System.out.println("xyz");
-		System.out.println("Slot1");
-		System.out.println("Slot2");
-		System.out.println("Slot3");
-		System.out.println("Slot4");
-		System.out.println("Slot5");
-		System.out.println("Slot6");
-		return null;
+
+		GymGMSDao GMSDao = new GymGMSDAOImpl();
+		Gym gym = GMSDao.getGymById(gymNo);
+		return gym;
 	}
 	public void showAllBookings(String username) {
 		

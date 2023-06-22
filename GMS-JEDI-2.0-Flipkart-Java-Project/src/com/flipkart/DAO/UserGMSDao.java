@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface UserGMSDao {
     void createUser(User user);
-    User getUserById(String userId);
+    User getUserByUsername(String userId);
     void updateUser(User user);
     void deleteUser(User user);
     List<User> getAllUsers();

@@ -30,7 +30,7 @@ public class UserGMSDAOImpl implements UserGMSDao{
 	}
 
 	@Override
-	public User getUserById(String userId) {
+	public User getUserByUsername(String userId) {
 		Connection conn = JDBC.getConnection();
 		String sql = "SELECT * FROM User WHERE username=? LIMIT 1";
 		try {			

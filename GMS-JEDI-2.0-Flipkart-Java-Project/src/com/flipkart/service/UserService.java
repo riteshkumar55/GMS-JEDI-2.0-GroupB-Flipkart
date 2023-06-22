@@ -8,7 +8,7 @@ import com.flipkart.bean.*;
 public class UserService implements UserInterface{
 	public User login(String username, String password){
 		UserGMSDao userDao = new UserGMSDAOImpl();
-		User user = userDao.getUserById(username);
+		User user = userDao.getUserByUsername(username);
 		if(user!=null) {
 			if(user.getPassword().equals(password)) {
 				return user;

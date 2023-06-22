@@ -22,7 +22,7 @@ public class CustomerGMSDAOImpl implements CustomerGMSDao {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, customer.getUsername());
 			stmt.setString(2, customer.getPassword());
-			stmt.setString(3, customer.getRole());
+			stmt.setInt(3, customer.getRoleId());
 			stmt.setString(4, customer.getCusName());
 			stmt.setString(5, customer.getAddress());
 			stmt.executeUpdate();
