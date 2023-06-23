@@ -26,4 +26,5 @@ public class SQLConstants {
 	public static final String GET_USER_BY_USERNAME = "SELECT * FROM User WHERE username=? LIMIT 1";
 	public static final String CREATE_GYM = "INSERT INTO Gym (gym_id, gym_name, gst_number, address, tot_slots, number_of_machines, seats, gym_owner_id,"
 				+ "number_of_instructors, is_cardio_available, is_crossfit_available, floor_area) Values(?,?,?,?,?,?,?,?,?,?,?,?);";
+	public static final String CREATE_GYM_OWNER = "INSERT INTO Gym_owner (gym_owner_id, address, aadhaar, pan) Values (?,?,?,?);";
 }
