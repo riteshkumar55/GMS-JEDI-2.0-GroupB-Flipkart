@@ -19,6 +19,11 @@ public class SQLConstants {
 	public static final String CANCEL_BOOKING = "DELETE FROM Booking WHERE booking_id=?";
 	public static final String SHOW_ALL_AVAILABLE_GYMS = "SELECT * FROM Gym WHERE is_approved=true";
 	public static final String SHOW_CUSTOMER_BOOKING_QUERY = "SELECT * FROM Booking WHERE customer_id = ? ";
-	
-	
+	public static final String SHOW_ALL_GYMS_OF_OWNER = "SELECT * FROM Gym WHERE gym_owner_id = ?";
+	public static final String GET_GYM_BY_ID = "SELECT * FROM Gym WHERE gym_id = ?";
+	public static final String GET_ROLE_NAME_BY_ID = "SELECT role_name FROM Role WHERE role_id=? LIMIT 1";
+	public static final String GET_ROLE_ID_BY_NAME = "SELECT role_id FROM Role WHERE role_name=? LIMIT 1";
+	public static final String GET_USER_BY_USERNAME = "SELECT * FROM User WHERE username=? LIMIT 1";
+	public static final String CREATE_GYM = "INSERT INTO Gym (gym_id, gym_name, gst_number, address, tot_slots, number_of_machines, seats, gym_owner_id,"
+				+ "number_of_instructors, is_cardio_available, is_crossfit_available, floor_area) Values(?,?,?,?,?,?,?,?,?,?,?,?);";
 }

@@ -40,7 +40,7 @@ public class GymGMSDAOImpl implements GymGMSDao {
 	public List<Gym> getAllMyGyms(String username) {
 		Connection conn = DBUtils.getConnection();
 		try {
-			String sql = "SELECT * FROM GYM WHERE gym_owner_id = ?";
+			String sql = SQLConstants.SHOW_ALL_GYMS_OF_OWNER;
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, username);
 			ResultSet rs = stmt.executeQuery();
@@ -61,7 +61,7 @@ public class GymGMSDAOImpl implements GymGMSDao {
 	@Override
 	public Gym getGymById(int gymId) {
 		Connection conn = DBUtils.getConnection();
-		String sql = "SELECT * FROM Gym WHERE gymId=? LIMIT 1";
+		String sql = SQLConstants.GET_GYM_BY_ID;
 		try {			
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setLong(1, gymId);
@@ -111,8 +111,7 @@ public class GymGMSDAOImpl implements GymGMSDao {
 	//Add more field number of instructor is missing ******
 	public void createGym(Gym gym) {
 		Connection conn = DBUtils.getConnection();
-		String sql = "INSERT INTO Gym (gym_id, gym_name, gst_number, address, tot_slots, number_of_machines, seats, gym_owner_id,"
-				+ "number_of_instructors, is_cardio_available, is_crossfit_available, floor_area) Values(?,?,?,?,?,?,?,?,?,?,?,?);";
+		String sql = SQLConstants.CREATE_GYM;
 		try {			
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, gym.getGymId());
