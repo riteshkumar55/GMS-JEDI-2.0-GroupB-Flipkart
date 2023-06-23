@@ -35,6 +35,7 @@ public class GMSCustomerMenu {
 				break;
 			case 4:
 				//Logout
+				return;
 //				gmsApplication.updatePassword();
 			default:
 				System.out.println("Invalid Output");
