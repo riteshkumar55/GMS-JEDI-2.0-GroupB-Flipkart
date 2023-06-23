@@ -38,7 +38,7 @@ public class GymGMSDAOImpl implements GymGMSDao {
 
 	
 	public List<Gym> getAllMyGyms(String username) {
-		Connection conn = JDBC.getConnection();
+		Connection conn = DBUtils.getConnection();
 		try {
 			String sql = "SELECT * FROM GYM WHERE gym_owner_id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
@@ -94,7 +94,7 @@ public class GymGMSDAOImpl implements GymGMSDao {
 	}
 	
 	public String removeGym(int gymId) {
-		Connection conn = JDBC.getConnection();
+		Connection conn = DBUtils.getConnection();
 		//edit kardena isme sql deepak drop karna hai gym 
 		String sql = "";
 		try {			
@@ -110,7 +110,7 @@ public class GymGMSDAOImpl implements GymGMSDao {
 	}
 	//Add more field number of instructor is missing ******
 	public void createGym(Gym gym) {
-		Connection conn = JDBC.getConnection();
+		Connection conn = DBUtils.getConnection();
 		String sql = "INSERT INTO Gym (gym_id, gym_name, gst_number, address, tot_slots, number_of_machines, seats, gym_owner_id,"
 				+ "number_of_instructors, is_cardio_available, is_crossfit_available, floor_area) Values(?,?,?,?,?,?,?,?,?,?,?,?);";
 		try {			

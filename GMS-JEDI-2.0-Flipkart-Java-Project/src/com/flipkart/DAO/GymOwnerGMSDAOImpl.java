@@ -6,11 +6,11 @@ import java.sql.SQLException;
 
 import com.flipkart.bean.Gym;
 import com.flipkart.bean.GymOwner;
-import com.flipkart.utils.JDBC;
+import com.flipkart.utils.DBUtils;
 
 public class GymOwnerGMSDAOImpl implements GymOwnerGMSDao {
 	public void createGymOwner(GymOwner newGymOwner) {
-		Connection conn = JDBC.getConnection();
+		Connection conn = DBUtils.getConnection();
 		String sql = "INSERT INTO Gym_owner (gym_owner_id, address, aadhaar, pan) Values (?,?,?,?);";
 		try {			
 			PreparedStatement stmt = conn.prepareStatement(sql);
