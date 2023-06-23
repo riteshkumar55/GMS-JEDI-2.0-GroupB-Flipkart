@@ -58,7 +58,7 @@ public class Gym {
 	}
 
 	public Gym(int gymId, String gymName, String gstNo, String address, int totSlots, int numberOfMachines,
-			Slot[] slots, int seats, String gymOwnerId, int numberOfInstructors, boolean isCardioAvailable,
+			int seats, String gymOwnerId, int numberOfInstructors, boolean isCardioAvailable,
 			boolean isCrossfitAvailable, int floorArea, boolean isApproved) {
 		super();
 		this.gymId = gymId;
@@ -67,7 +67,6 @@ public class Gym {
 		this.address = address;
 		this.totSlots = totSlots;
 		this.numberOfMachines = numberOfMachines;
-		this.slots = slots;
 		this.seats = seats;
 		this.gymOwnerId = gymOwnerId;
 		this.numberOfInstructors = numberOfInstructors;

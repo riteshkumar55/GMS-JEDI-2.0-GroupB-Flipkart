@@ -13,6 +13,29 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class GymGMSDAOImpl implements GymGMSDao {
+	
+	public List<Gym> getAllGyms() {
+		Connection conn = DBUtils.getConnection();
+		try {
+			String sql = SQLConstants.SHOW_ALL_GYMS;
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			List<Gym> gymnasiums = new ArrayList<Gym>();
+			while (rs.next()) {
+				Gym gym = new Gym(rs.getInt("gym_id"), rs.getString("gym_name"), rs.getString("gst_number"),
+						rs.getString("address"), rs.getInt("tot_slots"), rs.getInt("number_of_machines"),
+						rs.getInt("seats"), rs.getString("gym_owner_id"),rs.getInt("number_of_instructors"), 
+						rs.getBoolean("is_cardio_available"), rs.getBoolean("is_crossfit_available"),
+						rs.getInt("floor_area"), rs.getBoolean("is_approved"));
+				gymnasiums.add(gym);
+
+			}
+			return gymnasiums;
+		} catch (SQLException se) {
+			se.printStackTrace();
+		}
+		return null;
+	}
 
 	@Override
 	public List<Gym> getAllAvailableGyms() {
@@ -109,16 +132,19 @@ public class GymGMSDAOImpl implements GymGMSDao {
 		}
 	}
 	
-	public void updateApproval(int gymId) {
-		Connection conn = DBUtil.getConnection();
+	public boolean updateApproval(int gymId) {
+		Connection conn = DBUtils.getConnection();
 		String sql = "UPDATE Gym SET is_approved=true WHERE gym_id=?";
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, gymId);
+			int status = stmt.executeUpdate();
+			return status!=0;
 			
 		}catch(SQLException se) {
 			se.printStackTrace();
 		}
+		return false;
 	}
 	
 	public void createGym(Gym gym) {
@@ -134,10 +160,10 @@ public class GymGMSDAOImpl implements GymGMSDao {
 			stmt.setInt(6, gym.getNumberOfMachines());
 			stmt.setInt(7, gym.getSeats());
 			stmt.setString(8, gym.getGymOwnerId());
-			stmt.setInt(9, gym.getNumber_of_instructors());
-			stmt.setBoolean(10, gym.isIs_cardio_available());
-			stmt.setBoolean(11, gym.isIs_crossfit_available());
-			stmt.setInt(12, gym.getFloor_area());
+			stmt.setInt(9, gym.getNumberOfInstructors());
+			stmt.setBoolean(10, gym.isIsCardioAvailable());
+			stmt.setBoolean(11, gym.isIsCrossfitAvailable());
+			stmt.setInt(12, gym.getFloorArea());
 			stmt.executeUpdate();
 		}
 		catch(SQLException se) {

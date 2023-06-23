@@ -44,23 +44,23 @@ public class GMSApplication {
 	}
 
 	public static void createMainMenu() {
-		System.out.println("Welcome to FlipFit Gymnasium Application\n");
+		System.out.println("\nWelcome to FlipFit Gymnasium Application\n");
 		System.out.println("Menu:");
 		System.out.println("1. Login");
 		System.out.println("2. Customer Registration");
 		System.out.println("3. GymOwner Registration");
 		System.out.println("4. Update Password");
 		System.out.println("5. Exit\n");
-		System.out.println("Enter your choice: ");
+		System.out.print("Enter your choice: ");
 
 	}
 
 	public void loginUser() {
-		System.out.println("Login to FlipFit");
-		System.out.println("Enter your username: ");
+		System.out.println("\nLogin to FlipFit\n");
+		System.out.print("Enter your username: ");
 		Scanner in = new Scanner(System.in);
 		String username = in.next();
-		System.out.println("Enter your password: ");
+		System.out.print("Enter your password: ");
 		String password = in.next();
 		UserInterface userSer = new UserService();
 		RoleGMSInterface rolSer = new RoleGMSService();
@@ -83,11 +83,11 @@ public class GMSApplication {
 				break;
 			
 			default:
-				System.out.println("Role not found");
+				System.out.println("\nRole not found\n");
 				break;
 			}
 		} else {
-			System.out.println("Wrong Login Credentials!");
+			System.out.println("\nWrong Login Credentials!\n");
 		}
 	}
 
@@ -105,11 +105,11 @@ public class GMSApplication {
 	public boolean updatePassword() {
 		UserInterface userSerr = new UserService();
 		Scanner in = new Scanner(System.in);
-		System.out.println("Please enter your username: ");
+		System.out.print("Please enter your username: ");
 		String usernamee = in.nextLine();
-		System.out.println("Please enter your old password: ");
+		System.out.print("Please enter your old password: ");
 		String oldPassword = in.nextLine();
-		System.out.println("Please enter your new password: ");
+		System.out.print("Please enter your new password: ");
 		String newPassword = in.nextLine();
 		in.close();
 		if (userSerr.updatePassword(usernamee, oldPassword, newPassword))
