@@ -108,7 +108,19 @@ public class GymGMSDAOImpl implements GymGMSDao {
 			return "Removal unsuccessful";
 		}
 	}
-	//Add more field number of instructor is missing ******
+	
+	public void updateApproval(int gymId) {
+		Connection conn = DBUtil.getConnection();
+		String sql = "UPDATE Gym SET is_approved=true WHERE gym_id=?";
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, gymId);
+			
+		}catch(SQLException se) {
+			se.printStackTrace();
+		}
+	}
+	
 	public void createGym(Gym gym) {
 		Connection conn = DBUtils.getConnection();
 		String sql = SQLConstants.CREATE_GYM;
