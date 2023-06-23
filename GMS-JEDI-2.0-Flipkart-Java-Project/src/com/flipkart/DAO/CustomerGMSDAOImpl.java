@@ -8,27 +8,45 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import com.flipkart.bean.Customer;
+import com.flipkart.constants.SQLConstants;
 import com.flipkart.utils.DBUtils;
 
 /**
  * 
  */
 public class CustomerGMSDAOImpl implements CustomerGMSDao {
-	public void createCustomer(Customer customer) {
+	public boolean createCustomer(Customer customer) {
 		Connection conn = DBUtils.getConnection();
-		String sql = "INSERT INTO Customer (user_id, Password, role, CusName, Address) Values(?,?,?,?,?);";
 		try {			
-			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setString(1, customer.getUsername());
-			stmt.setString(2, customer.getPassword());
-			stmt.setInt(3, customer.getRoleId());
-			stmt.setString(4, customer.getCusName());
-			stmt.setString(5, customer.getAddress());
-			stmt.executeUpdate();
+			PreparedStatement create_customer_registration_stmt = conn.prepareStatement(SQLConstants.CREATE_CUSTOMER_REGISTRATION_QUERY);
+			create_customer_registration_stmt.setString(1,customer.getUsername());
+			create_customer_registration_stmt.setString(2,customer.getPassword());
+			create_customer_registration_stmt.setInt(3,customer.getRoleId());
+			create_customer_registration_stmt.setString(4,customer.getName());
+			create_customer_registration_stmt.setString(5,customer.getAddress());
+			create_customer_registration_stmt.setString(6,customer.getPhone());
+			create_customer_registration_stmt.setString(7,customer.getGender());
+			create_customer_registration_stmt.execute();
+			
+			PreparedStatement create_user_stmt = conn.prepareStatement(SQLConstants.CREATE_USER_QUERY);
+			create_user_stmt.setString(1, customer.getUsername());
+			create_user_stmt.setString(2, customer.getPassword());
+			create_user_stmt.setInt(3, customer.getRoleId());
+			create_user_stmt.setString(4, customer.getName());
+			create_user_stmt.executeUpdate();
+			
+			PreparedStatement create_customer_stmt = conn.prepareStatement(SQLConstants.CREATE_CUSTOMER_QUERY);
+			create_customer_stmt.setString(1, customer.getUsername());
+			create_customer_stmt.setString(2, customer.getAddress());
+			create_customer_stmt.setString(3, customer.getPhone());
+			create_customer_stmt.setString(4, customer.getGender());
+			create_customer_stmt.execute();
+			return true;
 		}
 		catch(SQLException se) {
 			se.printStackTrace();
 		}
+		return false;
 	}
 
 }

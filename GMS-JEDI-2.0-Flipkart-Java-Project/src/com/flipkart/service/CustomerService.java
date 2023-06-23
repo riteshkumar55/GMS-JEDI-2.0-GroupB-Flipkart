@@ -11,9 +11,9 @@ import com.flipkart.DAO.*;
 
 public class CustomerService implements CustomerInterface{
 	
-	public List<Gym> showAllGym() {
+	public List<Gym> showAllAvailableGym() {
 		GymGMSDao GMSDao = new GymGMSDAOImpl();
-		List<Gym> gymnasiums = GMSDao.getAllGyms();
+		List<Gym> gymnasiums = GMSDao.getAllAvailableGyms();
 		return gymnasiums;
 	}
 	public Gym showGymDetails(int gymNo) {
@@ -36,6 +36,12 @@ public class CustomerService implements CustomerInterface{
 		custDao.createCustomer(newCustomer);
 		
 		return true;
+	}
+	@Override
+	public boolean cancelBooking(int booking_id) {
+		// TODO Auto-generated method stub
+		BookingGMSDao bookingDao = new BookingGMSDAOImpl();
+		return bookingDao.cancelBooking(booking_id);
 	}
 	
 }

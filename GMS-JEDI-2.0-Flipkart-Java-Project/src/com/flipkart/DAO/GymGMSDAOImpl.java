@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.flipkart.bean.Gym;
 import com.flipkart.bean.User;
+import com.flipkart.constants.SQLConstants;
 import com.flipkart.utils.DBUtils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,10 +15,10 @@ import java.sql.SQLException;
 public class GymGMSDAOImpl implements GymGMSDao {
 
 	@Override
-	public List<Gym> getAllGyms() {
+	public List<Gym> getAllAvailableGyms() {
 		Connection conn = DBUtils.getConnection();
 		try {
-			String sql = "SELECT * FROM GYM";
+			String sql = SQLConstants.SHOW_ALL_AVAILABLE_GYMS;
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
 			List<Gym> gymnasiums = new ArrayList<Gym>();
