@@ -15,7 +15,7 @@ import com.flipkart.bean.User;
 public class UserGMSDAOImpl implements UserGMSDao{
 	public void createUser(User user) {
 		Connection conn = JDBC.getConnection();
-		String sql = "INSERT INTO User (user_id, password, role_id, name) Values(?,?,?,?);";
+		String sql = "INSERT INTO User (username, password, role_id, name) Values(?,?,?,?);";
 		try {			
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, user.getUsername());

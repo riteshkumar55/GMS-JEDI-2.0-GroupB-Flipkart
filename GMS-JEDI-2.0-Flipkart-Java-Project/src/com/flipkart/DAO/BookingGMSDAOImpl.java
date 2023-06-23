@@ -10,14 +10,15 @@ import java.util.List;
 
 import com.flipkart.bean.Booking;
 import com.flipkart.bean.Gym;
+import com.flipkart.constants.SQLConstants;
 import com.flipkart.utils.JDBC;
 
 public class BookingGMSDAOImpl implements BookingGMSDao {
 	public List<Booking> getAllBookings(String custId) {
 		Connection conn = JDBC.getConnection();
 		try {
-			String sql = "SELECT * FROM Booking WHERE customer_id = ? ";
-			PreparedStatement stmt = conn.prepareStatement(sql);
+//			String sql = "SELECT * FROM Booking WHERE customer_id = ? ";
+			PreparedStatement stmt = conn.prepareStatement(SQLConstants.SHOW_CUSTOMER_BOOKING_QUERY);
 			stmt.setString(1, custId);
 			ResultSet rs = stmt.executeQuery();
 			List<Booking> bookings = new ArrayList<Booking>();
