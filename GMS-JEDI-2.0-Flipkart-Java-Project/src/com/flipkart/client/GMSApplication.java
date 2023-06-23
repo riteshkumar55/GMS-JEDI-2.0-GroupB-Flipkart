@@ -69,9 +69,7 @@ public class GMSApplication {
 			String role = rolSer.getRoleNameById(user.getRoleId());
 			switch (role) {
 			case "Customer":
-
-				GMSCustomerMenu cusMenu = new GMSCustomerMenu();
-				cusMenu.showCustomerMenu(username);
+				GMSCustomerMenu.showCustomerMenu(username);
 				break;
 
 			case "Gym Owner":
