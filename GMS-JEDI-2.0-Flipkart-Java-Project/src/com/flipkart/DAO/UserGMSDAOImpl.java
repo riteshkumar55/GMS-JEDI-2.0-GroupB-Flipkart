@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.util.List;
 import com.flipkart.bean.User;
+import com.flipkart.constants.SQLConstants;
 import com.flipkart.utils.DBUtils;
 /**
  * 
