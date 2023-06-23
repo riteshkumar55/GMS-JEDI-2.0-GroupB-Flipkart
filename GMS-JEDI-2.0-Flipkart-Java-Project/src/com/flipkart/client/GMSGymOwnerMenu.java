@@ -22,13 +22,13 @@ import com.flipkart.service.*;
 public class GMSGymOwnerMenu {
 	public void showGymOwnerMenu(String username ) {
 		Scanner in = new Scanner(System.in);
-		System.out.println("Welcome " + username + " to FlipFit\n");
+		System.out.println("\nWelcome " + username + " to FlipFit\n");
 		System.out.println("Menu:");
 		System.out.println("1. Add Gym Center");
 		System.out.println("2. Remove Gym Center");
 		System.out.println("3. List All My Gym Center");
 		System.out.println("4. Logout\n");
-		System.out.println("Enter your choice: ");
+		System.out.print("Enter your choice: ");
 
 		int gymOwnerChoice = in.nextInt();
 
@@ -36,42 +36,42 @@ public class GMSGymOwnerMenu {
 		case 1:
 			Gym newGym = new Gym();
 			newGym.setGymOwnerId(username);
-			System.out.println("Enter information for Gym");
-			System.out.println("Enter Gym ID");
+			System.out.print("Enter information for Gym: ");
+			System.out.print("Enter Gym ID: ");
 			newGym.setGymId(in.nextInt());
-			System.out.println("Enter Gym Name");
+			System.out.print("Enter Gym Name: ");
 			newGym.setGymName(in.next());
-			System.out.println("Enter GST Number");
+			System.out.print("Enter GST Number: ");
 			newGym.setGstNo(in.next());
-			System.out.println("Enter Address of the Gym");
+			System.out.print("Enter Address of the Gym: ");
 			newGym.setAddress(in.next());
-			System.out.println("Enter total no of slots");
+			System.out.print("Enter total no of slots: ");
 			newGym.setTotSlots(in.nextInt());
-			System.out.println("Enter no of seats in a slot");
+			System.out.print("Enter no of seats in a slot: ");
 			newGym.setSeats(in.nextInt());
-			System.out.println("Enter total number of machines");
+			System.out.print("Enter total number of machines: ");
 			newGym.setNumberOfMachines(in.nextInt());
-			System.out.println("Enter total number of instructors");
-			newGym.setNumber_of_instructors(in.nextInt());
-			System.out.println("Is cardio available (0 for No and 1 for Yes");
-			newGym.setIs_cardio_available(in.nextBoolean());
-			System.out.println("Is crossfit available (0 for No and 1 for Yes");
-			newGym.setIs_crossfit_available(in.nextBoolean());
-			System.out.println("Enter total floor area");
-			newGym.setFloor_area(in.nextInt());
+			System.out.print("Enter total number of instructors: ");
+			newGym.setNumberOfInstructors(in.nextInt());
+			System.out.print("Is cardio available (0 for No and 1 for Yes): ");
+			newGym.setIsCardioAvailable(in.nextBoolean());
+			System.out.print("Is crossfit available (0 for No and 1 for Yes): ");
+			newGym.setIsCrossfitAvailable(in.nextBoolean());
+			System.out.print("Enter total floor area: ");
+			newGym.setFloorArea(in.nextInt());
 			GymOwnerInterface gymOwnSer = new GymOwnerService();
 			gymOwnSer.addGym(newGym,username);
 			break;
 		case 2:
-			System.out.println("Removed!");
+			System.out.println("\nRemoved!\n");
 			break;
 		case 3:
 			GymOwnerInterface gymOwner = new GymOwnerService();
 			gymOwner.viewGym(username);
-			System.out.println("Added");
+			System.out.println("\nAdded\n");
 			break;
 		case 4:
-			System.out.println("Logged Out!");
+			System.out.println("\nLogged Out!\n");
 			break;
 		}
 	}
@@ -89,28 +89,28 @@ public class GMSGymOwnerMenu {
 		newGymOwner.setRoleId(roleGMSSer.getRoleIdByName("Gym Owner"));
 		newUser.setRoleId(roleGMSSer.getRoleIdByName("Gym Owner"));
 		
-		System.out.println("Please enter your Name: ");
+		System.out.print("Please enter your Name: ");
 		newGymOwner.setName(in.next());
 		newUser.setName(newGymOwner.getName());
 		
-		System.out.println("Please enter your username: ");
+		System.out.print("Please enter your username: ");
 		newGymOwner.setUsername(in.next());
 		newUser.setUsername(newGymOwner.getUsername());
 		
-		System.out.println("Please set your password: ");
+		System.out.print("Please set your password: ");
 		newGymOwner.setPassword(in.next());
 		newUser.setPassword(newGymOwner.getPassword());
 
-		System.out.println("Please enter your Address: ");
+		System.out.print("Please enter your Address: ");
 		newGymOwner.setAddress(in.next());
 		
-		System.out.println("Enter Aadhaar No");
+		System.out.print("Enter Aadhaar No: ");
 		newGymOwner.setAadharNo(in.next());
 		
-		System.out.println("Enter PAN No");
+		System.out.print("Enter PAN No: ");
 		newGymOwner.setPanCard(in.next());
 		
-		System.out.println("Enter Registration id");
+		System.out.print("Enter Registration id: ");
 		newGymOwner.setRegistrationId(in.next());
 		
 //		System.out.println("Enter no of gyms");
@@ -153,6 +153,6 @@ public class GMSGymOwnerMenu {
 		
 		
 		userList.add(newUser);
-		System.out.println("New GymOwner Added");
+		System.out.println("\nNew GymOwner Added\n");
 	}
 }

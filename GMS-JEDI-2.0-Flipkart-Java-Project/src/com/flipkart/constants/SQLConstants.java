@@ -17,6 +17,7 @@ public class SQLConstants {
 	public static final String CREATE_BOOKING = "INSERT INTO Booking (slot_id, customer_id,date) VALUES(?,?,(SELECT day FROM slot where slot_id=?))";
 	public static final String GET_CLASHING_SLOTS = "SELECT * FROM Booking JOIN Slot ON Booking.slot_id = Slot.slot_id WHERE Booking.customer_id=? AND Booking.date = (SELECT date FROM Slot WHERE slot_id=?) AND Slot.slot_time = (SELECT slot_time FROM Slot WHERE slot_id=?)";
 	public static final String CANCEL_BOOKING = "DELETE FROM Booking WHERE booking_id=?";
+	public static final String SHOW_ALL_GYMS = "SELECT * FROM Gym";
 	public static final String SHOW_ALL_AVAILABLE_GYMS = "SELECT * FROM Gym WHERE is_approved=true";
 	public static final String SHOW_CUSTOMER_BOOKING_QUERY = "SELECT * FROM Booking WHERE customer_id = ? ";
 	public static final String SHOW_ALL_GYMS_OF_OWNER = "SELECT * FROM Gym WHERE gym_owner_id = ?";

@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.flipkart.bean.Gym;
-import com.flipkart.utils.DBUtil;
 
 /**
  * 
