@@ -9,7 +9,7 @@ import com.flipkart.bean.Booking;
 import com.flipkart.bean.Customer;
 import com.flipkart.bean.Gym;
 
-/**
+/** Interface for CustomerService
  * 
  */
 public interface CustomerInterface {

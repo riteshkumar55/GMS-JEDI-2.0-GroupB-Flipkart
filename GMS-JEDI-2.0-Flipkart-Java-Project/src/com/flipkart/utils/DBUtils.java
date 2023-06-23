@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class DBUtils {
-	
+	// creates connection to MySQL Database
 	private static Connection connection = null;
 	
 	public static Connection getConnection() {

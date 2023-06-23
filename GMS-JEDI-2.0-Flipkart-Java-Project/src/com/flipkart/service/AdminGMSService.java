@@ -10,12 +10,12 @@ import com.flipkart.DAO.GymGMSDao;
 import com.flipkart.bean.Gym;
 
 /**
- * 
+ *  SERVICE FOR ADMIN/FLIPKART TO VIEW ALL GYMS AND APPROVE PENDING GYMS
  */
 public class AdminGMSService implements AdminGMSInterface{
 	public List<Gym> showAllGymCentres() {
 		GymGMSDao GMSDao = new GymGMSDAOImpl();
-		List<Gym> gymnasiums = GMSDao.getAllGyms();
+		List<Gym> gymnasiums = GMSDao.getAllAvailableGyms();
 		return gymnasiums;
 	}
 	public boolean approveGym(int gymId) {
