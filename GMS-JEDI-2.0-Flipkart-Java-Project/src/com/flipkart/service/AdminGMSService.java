@@ -3,17 +3,24 @@
  */
 package com.flipkart.service;
 
+import java.util.List;
+
+import com.flipkart.DAO.GymGMSDAOImpl;
+import com.flipkart.DAO.GymGMSDao;
+import com.flipkart.bean.Gym;
+
 /**
  * 
  */
 public class AdminGMSService implements AdminGMSInterface{
-	public boolean adminRegistration() {
-		return true;
+	public List<Gym> showAllGymCentres() {
+		GymGMSDao GMSDao = new GymGMSDAOImpl();
+		List<Gym> gymnasiums = GMSDao.getAllGyms();
+		return gymnasiums;
 	}
-	public void showNonApprovedGymCentre() {
-		
-	}
-	public boolean approveGym(int gymNo) {
+	public boolean approveGym(int gymId) {
+		GymGMSDao gymGMSDao = new GymGMSDAOImpl();
+		gymGMSDao.updateApproval(gymId);
 		return true;
 	}
 }

@@ -10,56 +10,56 @@ public class Gym {
 	private Slot slots[];
 	private int seats;
 	private String gymOwnerId;
-	private int number_of_instructors;
-	private boolean is_cardio_available;
-	private boolean is_crossfit_available;
-	private int floor_area;
-	private boolean is_approved;
+	private int numberOfInstructors;
+	private boolean isCardioAvailable;
+	private boolean isCrossfitAvailable;
+	private int floorArea;
+	private boolean isApproved;
 	
 	
-	public int getNumber_of_instructors() {
-		return number_of_instructors;
+	public int getNumberOfInstructors() {
+		return numberOfInstructors;
 	}
 
-	public void setNumber_of_instructors(int number_of_instructors) {
-		this.number_of_instructors = number_of_instructors;
+	public void setNumberOfInstructors(int numberOfInstructors) {
+		this.numberOfInstructors = numberOfInstructors;
 	}
 
-	public boolean isIs_cardio_available() {
-		return is_cardio_available;
+	public boolean isIsCardioAvailable() {
+		return isCardioAvailable;
 	}
 
-	public void setIs_cardio_available(boolean is_cardio_available) {
-		this.is_cardio_available = is_cardio_available;
+	public void setIsCardioAvailable(boolean isCardioAvailable) {
+		this.isCardioAvailable = isCardioAvailable;
 	}
 
-	public boolean isIs_crossfit_available() {
-		return is_crossfit_available;
+	public boolean isIsCrossfitAvailable() {
+		return isCrossfitAvailable;
 	}
 
-	public void setIs_crossfit_available(boolean is_crossfit_available) {
-		this.is_crossfit_available = is_crossfit_available;
+	public void setIsCrossfitAvailable(boolean isCrossfitAvailable) {
+		this.isCrossfitAvailable = isCrossfitAvailable;
 	}
 
-	public int getFloor_area() {
-		return floor_area;
+	public int getFloorArea() {
+		return floorArea;
 	}
 
-	public void setFloor_area(int floor_area) {
-		this.floor_area = floor_area;
+	public void setFloorArea(int floorArea) {
+		this.floorArea = floorArea;
 	}
 
-	public boolean isIs_approved() {
-		return is_approved;
+	public boolean getIsApproved() {
+		return isApproved;
 	}
 
-	public void setIs_approved(boolean is_approved) {
-		this.is_approved = is_approved;
+	public void setIsApproved(boolean isApproved) {
+		this.isApproved = isApproved;
 	}
 
 	public Gym(int gymId, String gymName, String gstNo, String address, int totSlots, int numberOfMachines,
-			Slot[] slots, int seats, String gymOwnerId, int number_of_instructors, boolean is_cardio_available,
-			boolean is_crossfit_available, int floor_area, boolean is_approved) {
+			Slot[] slots, int seats, String gymOwnerId, int numberOfInstructors, boolean isCardioAvailable,
+			boolean isCrossfitAvailable, int floorArea, boolean isApproved) {
 		super();
 		this.gymId = gymId;
 		this.gymName = gymName;
@@ -70,11 +70,11 @@ public class Gym {
 		this.slots = slots;
 		this.seats = seats;
 		this.gymOwnerId = gymOwnerId;
-		this.number_of_instructors = number_of_instructors;
-		this.is_cardio_available = is_cardio_available;
-		this.is_crossfit_available = is_crossfit_available;
-		this.floor_area = floor_area;
-		this.is_approved = is_approved;
+		this.numberOfInstructors = numberOfInstructors;
+		this.isCardioAvailable = isCardioAvailable;
+		this.isCrossfitAvailable = isCrossfitAvailable;
+		this.floorArea = floorArea;
+		this.isApproved = isApproved;
 	}
 
 	public Gym(int gymId, String gymName, String gstNo, String address, int totSlots, int numberOfMachines, int seats, String gymOwnerId) {
