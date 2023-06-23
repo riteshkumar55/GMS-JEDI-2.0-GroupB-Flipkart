@@ -6,7 +6,7 @@ package com.flipkart.service;
 import com.flipkart.bean.Booking;
 
 /**
- * 
+ *  Interface for BookingSlotService 
  */
 public interface BookingSlotInterface {
 	public boolean bookSlot(String username,int slot_id);

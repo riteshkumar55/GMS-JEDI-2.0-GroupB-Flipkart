@@ -1,14 +1,20 @@
 package com.flipkart.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.flipkart.bean.Booking;
 import com.flipkart.bean.Customer;
 import com.flipkart.bean.Gym;
-import com.flipkart.bean.User;
 import com.flipkart.DAO.*;
 
+/* 
+ * CustomerService implements functions to allow a customer to -
+ * 1. view all available gyms in the city
+ * 2. view details about a gym
+ * 3. show all bookings by a customer
+ * 4. cancel a booking as needed
+ * 5. calls the customerRegistration function as well
+ * */
 public class CustomerService implements CustomerInterface{
 	
 	public List<Gym> showAllAvailableGym() {

@@ -6,16 +6,13 @@ import com.flipkart.DAO.*;
 import com.flipkart.bean.*;
 
 public class GymOwnerService implements GymOwnerInterface{
-//	@Override
-//	public boolean addGym(Gym gym, String username) {
-//		// TODO Auto-generated method stub
-////
-////		GymGMSDao gymDao = new GymGMSDAOImpl();
-////		gymDao.createGym(gym);
-//		
-//		
-//		return false;
-//	}
+/*
+ * Implements functions to allow -
+ * 1. remove gyms existing on the app's database
+ * 2. view all gyms previously added by the gym owner
+ * 3. registration of a gym owner
+ * 4. add a new gym
+ */
 	@Override
 	public boolean removeGym(int gymId) {
 		// TODO Auto-generated method stub
@@ -39,8 +36,6 @@ public class GymOwnerService implements GymOwnerInterface{
 			System.out.printf("%-3d\n", myGym.getNumberOfMachines());
 			
 		}
-		
-		
 	}
 	
 	public boolean gymOwnerRegister(GymOwner newGymOwner) {

@@ -7,7 +7,7 @@ import java.util.List;
 
 import com.flipkart.bean.Gym;
 
-/**
+/** Interface for AdminGMSService
  * 
  */
 public interface AdminGMSInterface {

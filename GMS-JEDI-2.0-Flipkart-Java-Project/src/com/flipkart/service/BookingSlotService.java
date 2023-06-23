@@ -2,7 +2,11 @@ package com.flipkart.service;
 
 import com.flipkart.DAO.*;
 import com.flipkart.bean.Booking;
-
+/* Booking slot service implements 3 functions - 
+ * 1.allow a user to book slot, 
+ * 2.get clashing bookings incase 2 bookings in the same timeslot
+ * 3.remove a slot booking
+ * as well*/
 public class BookingSlotService implements BookingSlotInterface {
 	public boolean bookSlot(String username, int slot_id) {
 		SlotGMSDao slotDAO = new SlotGMSDAOImpl();
