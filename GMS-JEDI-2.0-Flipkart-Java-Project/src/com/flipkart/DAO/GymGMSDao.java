@@ -11,7 +11,7 @@ import com.flipkart.bean.Gym;
  * 
  */
 public interface GymGMSDao {
-    List<Gym> getAllGyms();
+    List<Gym> getAllAvailableGyms();
     Gym getGymById(int gymId);
     void updateGym(Gym gym);
     void removeGym(Gym gym);

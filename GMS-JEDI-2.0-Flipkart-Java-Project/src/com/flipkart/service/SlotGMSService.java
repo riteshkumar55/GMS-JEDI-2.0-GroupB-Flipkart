@@ -21,5 +21,10 @@ public class SlotGMSService implements SlotGMSInterface {
 		SlotGMSDao slotDao = new SlotGMSDAOImpl();
 		return slotDao.getSlotsOfGym(gym_id);
 	}
+	
+	public boolean isSlotAvailable(int slot_id) {
+		SlotGMSDao slotDAO = new SlotGMSDAOImpl();
+		return slotDAO.isSlotAvailable(slot_id);
+	}
 
 }
