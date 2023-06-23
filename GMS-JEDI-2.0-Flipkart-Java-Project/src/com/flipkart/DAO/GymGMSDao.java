@@ -16,4 +16,5 @@ public interface GymGMSDao {
     void updateGym(Gym gym);
     void removeGym(Gym gym);
     void createGym(Gym gym);
+    void updateApproval(int gymId);
 }

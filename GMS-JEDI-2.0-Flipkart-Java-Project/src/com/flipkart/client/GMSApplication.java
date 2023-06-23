@@ -135,6 +135,7 @@ public class GMSApplication {
 		String oldPassword = in.nextLine();
 		System.out.println("Please enter your new password: ");
 		String newPassword = in.nextLine();
+		in.close();
 		if (userSerr.updatePassword(usernamee, oldPassword, newPassword))
 			return true;
 		return false;

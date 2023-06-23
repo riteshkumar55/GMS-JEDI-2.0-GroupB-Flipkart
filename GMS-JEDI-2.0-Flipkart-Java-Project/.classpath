@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="src"/>
-<<<<<<< HEAD
-	<classpathentry kind="lib" path="/Users/deepak.prakash/Downloads/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33.jar"/>
-=======
-<<<<<<< Updated upstream
-	<classpathentry kind="lib" path="/Users/naman.chhaparia/Downloads/mysql-connector-j-8.0.33/mysql-connector-j-8.0.33.jar"/>
-=======
 	<classpathentry kind="lib" path="/Users/kumarsuman.saurabh/Downloads/mysql-connector-j-8.0.33.jar"/>
->>>>>>> Stashed changes
->>>>>>> 3826c315dcc407cc194d3f25a3e2c1d99fdd11a5
 	<classpathentry kind="output" path="bin"/>
 </classpath>

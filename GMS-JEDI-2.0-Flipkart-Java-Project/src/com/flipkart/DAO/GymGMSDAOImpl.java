@@ -74,6 +74,18 @@ public class GymGMSDAOImpl implements GymGMSDao {
 		
 	}
 	
+	public void updateApproval(int gymId) {
+		Connection conn = DBUtil.getConnection();
+		String sql = "UPDATE Gym SET is_approved=true WHERE gym_id=?";
+		try {
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, gymId);
+			
+		}catch(SQLException se) {
+			se.printStackTrace();
+		}
+	}
+	
 	public void createGym(Gym gym) {
 		Connection conn = DBUtil.getConnection();
 		String sql = "INSERT INTO Gym (gym_id, gym_name, gst_no, address, tot_slots, number_of_machines, seats, gym_owner_id) Values(?,?,?,?,?,?,?,?);";
