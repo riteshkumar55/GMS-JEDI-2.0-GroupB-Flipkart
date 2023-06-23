@@ -20,7 +20,6 @@ public class AdminGMSService implements AdminGMSInterface{
 	}
 	public boolean approveGym(int gymId) {
 		GymGMSDao gymGMSDao = new GymGMSDAOImpl();
-		gymGMSDao.updateApproval(gymId);
-		return true;
+		return gymGMSDao.updateApproval(gymId);
 	}
 }

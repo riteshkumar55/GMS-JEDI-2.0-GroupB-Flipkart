@@ -19,13 +19,13 @@ public class GMSCustomerMenu {
 		CustomerInterface cusSer = new CustomerService();
 		SlotGMSInterface slotSer = new SlotGMSService();
 		do {
-			System.out.println("Welcome " + username + " to FlipFit\n");
+			System.out.println("\nWelcome " + username + " to FlipFit\n");
 			System.out.println("Menu:");
 			System.out.println("1. Show all gym");
 			System.out.println("2. Show all slot bookings");
 			System.out.println("3. Cancel slot bookings");
 			System.out.println("4. Logout\n");
-			System.out.println("Enter your choice: ");
+			System.out.print("\nEnter your choice: ");
 			choiceCus = in.nextInt();
 			// TODO Auto-generated method stub
 
@@ -41,12 +41,12 @@ public class GMSCustomerMenu {
 						System.out.printf("%-10d\t", gym.getNumberOfMachines());
 						System.out.printf("%-2d\n", gym.getTotSlots());
 					}
-					System.out.println("Please Select the gym: ");
+					System.out.print("\nPlease Select the gym: ");
 					int gymNo = in.nextInt();
 					Gym selected_gym = gymnasiums.get(gymNo-1);
 					List<Slot> slots = slotSer.getSlotsOfGym(selected_gym.getGymId());
 
-					System.out.println("1. Please select the slot you want to book: ");
+					System.out.println("\n1. Please select the slot you want to book: ");
 					System.out.println("Day \t\t Time \t Availabe Seats");
 					for (Slot st : slots) {
 						System.out.printf("%-3tD\t", st.getDay());
@@ -54,7 +54,7 @@ public class GMSCustomerMenu {
 						System.out.printf("%-3d\n", st.getAvailSeats());
 					}
 					System.out.println("2. Back(enter -1)\n");
-					System.out.println("Enter your choice: ");
+					System.out.print("\nEnter your choice: ");
 					slotNo = in.nextInt();
 
 					if (slotNo != -1) {
@@ -62,7 +62,7 @@ public class GMSCustomerMenu {
 						Slot selected_slot = slots.get(slotNo-1);
 						Booking clashing = bookSlotser.getClashingBooking(username, selected_slot.getSlotId());
 						if (clashing != null) {
-							System.out.println("You already have a booking");
+							System.out.println("\nYou already have a booking\n");
 							System.out.println(clashing.getBooking_id() + "  " + clashing.getSlot_id() + "  "
 									+ clashing.getDate());
 							System.out.println("Press 1 to cancel old booking and create new booking");
@@ -72,22 +72,22 @@ public class GMSCustomerMenu {
 								continue;
 							else if (booking_choice == 1) {
 								if (!slotSer.isSlotAvailable(selected_slot.getSlotId())) {
-									System.out.println("Slot full, please choose another slot");
+									System.out.println("\nSlot full, please choose another slot\n");
 									continue;
 								}
 							}
 							bookSlotser.cancelSlot(clashing.getBooking_id());
 						}
 						if (bookSlotser.bookSlot(username, selected_slot.getSlotId())) {
-							System.out.println("Slot booked successfully!");
+							System.out.println("\nSlot booked successfully!\n");
 						} else {
-							System.out.println("Slot cannot be booked");
+							System.out.println("\nSlot cannot be booked\n");
 						}
 					}
 				}
 				break;
 			case 2:
-				System.out.println("Your Slot Bookings:");
+				System.out.println("\nYour Slot Bookings: ");
 				List<Booking> bookings = cusSer.showAllBookings(username);
 				System.out.println("Booking id\tSlot id\t\tDate");
 				for (Booking booking : bookings) {
@@ -104,16 +104,16 @@ public class GMSCustomerMenu {
 							.println(booking.getBooking_id() + "\t\t" + booking.getSlot_id() + "\t\t" + booking.getDate());
 				}
 
-				System.out.println("Please select the slot booking you want to cancel: ");
+				System.out.print("\nPlease select the slot booking you want to cancel: ");
 				int bookingNo = in.nextInt();
 				if (cusSer.cancelBooking(previous_bookings.get(bookingNo-1).getBooking_id())) {
-					System.out.println("Your booking has been successfully cancelled");
+					System.out.println("\nYour booking has been successfully cancelled\n");
 				} else {
-					System.out.println("Eror! Booking cannot be cancelled");
+					System.out.println("\nEror! Booking cannot be cancelled\n");
 				}
 				break;
 			case 4:
-				System.out.println("logged out!\n");
+				System.out.println("\nlogged out!\n");
 				break;
 			}
 		} while (choiceCus != 4);
@@ -126,7 +126,7 @@ public class GMSCustomerMenu {
 		Customer newCustomer = new Customer();
 		Scanner in = new Scanner(System.in);
 
-		System.out.println("Please enter your Username: ");
+		System.out.println("\nPlease enter your Username: ");
 		newCustomer.setUsername(in.next());
 		System.out.println("Please set your Password: ");
 		newCustomer.setPassword(in.next());
@@ -143,6 +143,6 @@ public class GMSCustomerMenu {
 		CustomerInterface cusSer = new CustomerService();
 		cusSer.customerRegistration(newCustomer);
 
-		System.out.println("New Customer Added");
+		System.out.println("\nNew Customer Added\n");
 	}
 }
