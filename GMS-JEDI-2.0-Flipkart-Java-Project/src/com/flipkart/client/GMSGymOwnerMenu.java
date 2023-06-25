@@ -13,9 +13,11 @@ import com.flipkart.service.RoleGMSService;
 import com.flipkart.bean.Customer;
 import com.flipkart.bean.Gym;
 import com.flipkart.bean.GymOwner;
+import com.flipkart.bean.Slot;
 import com.flipkart.bean.User;
 import com.flipkart.service.*;
-
+import java.sql.Date;
+import java.sql.Time;
 /**
  * 
  */
@@ -36,17 +38,13 @@ public class GMSGymOwnerMenu {
 		case 1:
 			Gym newGym = new Gym();
 			newGym.setGymOwnerId(username);
-			System.out.print("Enter information for Gym: ");
-			System.out.print("Enter Gym ID: ");
-			newGym.setGymId(in.nextInt());
+			System.out.print("Enter information for Gym\n");
 			System.out.print("Enter Gym Name: ");
 			newGym.setGymName(in.next());
 			System.out.print("Enter GST Number: ");
 			newGym.setGstNo(in.next());
 			System.out.print("Enter Address of the Gym: ");
 			newGym.setAddress(in.next());
-			System.out.print("Enter total no of slots: ");
-			newGym.setTotSlots(in.nextInt());
 			System.out.print("Enter no of seats in a slot: ");
 			newGym.setSeats(in.nextInt());
 			System.out.print("Enter total number of machines: ");
@@ -59,8 +57,27 @@ public class GMSGymOwnerMenu {
 			newGym.setIsCrossfitAvailable(in.nextBoolean());
 			System.out.print("Enter total floor area: ");
 			newGym.setFloorArea(in.nextInt());
+			System.out.print("Enter total no of slots: ");
+			int total_slots = in.nextInt();
+			newGym.setTotSlots(total_slots);
 			GymOwnerInterface gymOwnSer = new GymOwnerService();
-			gymOwnSer.addGym(newGym,username);
+			Gym new_gym = gymOwnSer.addGym(newGym);
+			List<Slot> slots = new ArrayList<Slot>(); 
+			System.out.println("Enter the slot informations\n");
+			for(int i=0;i<total_slots;i++) {
+		        System.out.print("Enter the start time (HH:mm:ss): ");
+		        String startTimeString = in.next();
+		        System.out.print("Enter the end time (HH:mm:ss): ");
+		        String endTimeString = in.next();
+		        Time startTime = Time.valueOf(startTimeString);
+		        Time endTime = Time.valueOf(endTimeString);
+		        slots.add(new Slot(-1,startTime,endTime,newGym.getSeats(),newGym.getGymId(),null));
+		        System.out.println();
+		        
+			}
+			SlotGMSInterface slotSer = new SlotGMSService();
+			slotSer.createSlots(slots);
+			System.out.println("Your Slots have been added");
 			break;
 		case 2:
 			System.out.println("\nRemoved!\n");
@@ -110,8 +127,8 @@ public class GMSGymOwnerMenu {
 		System.out.print("Enter PAN No: ");
 		newGymOwner.setPanCard(in.next());
 		
-		System.out.print("Enter Registration id: ");
-		newGymOwner.setRegistrationId(in.next());
+//		System.out.print("Enter Registration id: ");
+//		newGymOwner.setRegistrationId(in.next());
 		
 //		System.out.println("Enter no of gyms");
 //		int n = in.nextInt();

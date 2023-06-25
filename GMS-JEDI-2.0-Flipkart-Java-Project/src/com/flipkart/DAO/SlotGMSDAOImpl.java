@@ -6,7 +6,7 @@ import com.flipkart.bean.Slot;
 import com.flipkart.utils.DBUtils;
 import com.flipkart.constants.SQLConstants;
 import java.sql.*;
-
+import com.flipkart.constants.FlipFitConstants;
 public class SlotGMSDAOImpl implements SlotGMSDao {
 
 	@Override
@@ -20,14 +20,13 @@ public class SlotGMSDAOImpl implements SlotGMSDao {
 			stmt.setInt(1, gymId);
 			ResultSet rs = stmt.executeQuery();
 			while(rs.next()) {		
-				Slot slot = new Slot(rs.getInt("slot_id"), rs.getInt("slot_time"), rs.getInt("available_seats"),rs.getInt("gym_id"),rs.getDate("day"));
+				Slot slot = new Slot(rs.getInt("slot_id"),rs.getTime("slot_start_time"), rs.getTime("slot_end_time"), rs.getInt("available_seats"),rs.getInt("gym_id"),rs.getDate("day"));
 				slots.add(slot);
 			}
 			return slots;
 			
 		}
 		catch(SQLException se) {
-			System.out.println("Good debug");
 			se.printStackTrace();
 		}
 		return null;
@@ -49,18 +48,46 @@ public class SlotGMSDAOImpl implements SlotGMSDao {
 	}
 
 	@Override
-	public void decrementSeats(int slot_id) {
+	public boolean decrementSeats(int slot_id) {
 		// TODO Auto-generated method stub
 		Connection conn = DBUtils.getConnection();
 		try {
 			PreparedStatement stmt = conn.prepareStatement(SQLConstants.DECREMENT_SEATS);
 			stmt.setInt(1, slot_id);
-			stmt.executeUpdate();
+			int updated_rows = stmt.executeUpdate();
+			return updated_rows>0;
 		}
 		catch(SQLException se) {
 			se.printStackTrace();
 		}
+		return false;
 		
+	}
+
+	@Override
+	public boolean createSlot(List<Slot> slots) {
+		// TODO Auto-generated method stub
+		Connection conn = DBUtils.getConnection();
+		try {
+			conn.setAutoCommit(false);
+			PreparedStatement stmt = conn.prepareStatement(SQLConstants.CREATE_SLOT);
+			for(Slot st: slots) {
+				stmt.setTime(1,st.getSlot_start_time());
+				stmt.setTime(2, st.getSlot_end_time());
+				stmt.setInt(3, st.getAvailSeats());
+				stmt.setInt(4,st.getGymId());
+				stmt.setDate(5, st.getDay());
+				stmt.addBatch();
+			}
+
+			int[] added_rows = stmt.executeBatch();
+			conn.commit();
+			return true;
+		}
+		catch(SQLException se) {
+			se.printStackTrace();
+		}
+		return false;
 	}
 	
 

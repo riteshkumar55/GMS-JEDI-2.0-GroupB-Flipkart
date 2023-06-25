@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 import com.flipkart.bean.*;
 import com.flipkart.service.*;
+import java.text.SimpleDateFormat;
 
 /**
  * 
@@ -78,10 +79,12 @@ public class GMSCustomerMenu {
 			List<Slot> slots = slotSer.getSlotsOfGym(selected_gym.getGymId());
 
 			System.out.println("\n1. Please select the slot you want to book: ");
-			System.out.println("Day \t\t Time \t Availabe Seats");
+			System.out.println("Day(mm/dd/yy) \t Start Time \t End Time\tAvailabe Seats");
+			SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
 			for (Slot st : slots) {
 				System.out.printf("%-3tD\t", st.getDay());
-				System.out.printf("%-5d\t", st.getSlotTime());
+				System.out.printf("%s\t", timeFormat.format(st.getSlot_start_time()));
+				System.out.printf("%s\t", timeFormat.format(st.getSlot_end_time()));
 				System.out.printf("%-3d\n", st.getAvailSeats());
 			}
 			System.out.println("2. Back(enter -1)\n");

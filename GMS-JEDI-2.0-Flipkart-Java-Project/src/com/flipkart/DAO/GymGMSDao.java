@@ -17,6 +17,6 @@ public interface GymGMSDao {
     Gym getGymById(int gymId);
     void updateGym(Gym gym);
     String removeGym(int gymId);
-    void createGym(Gym gym);
+    Gym createGym(Gym gym);
     boolean updateApproval(int gymId);
 }

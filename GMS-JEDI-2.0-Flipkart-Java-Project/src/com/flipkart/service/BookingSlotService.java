@@ -19,8 +19,7 @@ public class BookingSlotService implements BookingSlotInterface {
 			}
 			boolean isBooked = bookingDAO.bookSlot(username, slot_id);
 			if (isBooked) {
-				slotDAO.decrementSeats(slot_id);
-				return true;
+				return slotDAO.decrementSeats(slot_id);
 			} else {
 				return false;
 			}

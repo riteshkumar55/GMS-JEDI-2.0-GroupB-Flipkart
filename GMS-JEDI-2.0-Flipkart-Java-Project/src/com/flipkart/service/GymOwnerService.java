@@ -44,11 +44,10 @@ public class GymOwnerService implements GymOwnerInterface{
 		return true;
 	}
 	@Override
-	public boolean addGym(Gym gym, String username) {
+	public Gym addGym(Gym gym) {
 		
 		// TODO Auto-generated method stub
 		GymGMSDao gymDao = new GymGMSDAOImpl();
-		gymDao.createGym(gym);
-		return false;
+		return gymDao.createGym(gym);
 	}
 }

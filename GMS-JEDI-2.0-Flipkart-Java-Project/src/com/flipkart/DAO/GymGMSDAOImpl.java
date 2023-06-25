@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class GymGMSDAOImpl implements GymGMSDao {
 	
@@ -147,27 +148,33 @@ public class GymGMSDAOImpl implements GymGMSDao {
 		return false;
 	}
 	
-	public void createGym(Gym gym) {
+	public Gym createGym(Gym gym) {
 		Connection conn = DBUtils.getConnection();
 		String sql = SQLConstants.CREATE_GYM;
 		try {			
-			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, gym.getGymId());
-			stmt.setString(2, gym.getGymName());
-			stmt.setString(3, gym.getGstNo());
-			stmt.setString(4, gym.getAddress());
-			stmt.setInt(5, gym.getTotSlots());
-			stmt.setInt(6, gym.getNumberOfMachines());
-			stmt.setInt(7, gym.getSeats());
-			stmt.setString(8, gym.getGymOwnerId());
-			stmt.setInt(9, gym.getNumberOfInstructors());
-			stmt.setBoolean(10, gym.isIsCardioAvailable());
-			stmt.setBoolean(11, gym.isIsCrossfitAvailable());
-			stmt.setInt(12, gym.getFloorArea());
+			PreparedStatement stmt = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+			stmt.setString(1, gym.getGymName());
+			stmt.setString(2, gym.getGstNo());
+			stmt.setString(3, gym.getAddress());
+			stmt.setInt(4, gym.getTotSlots());
+			stmt.setInt(5, gym.getNumberOfMachines());
+			stmt.setInt(6, gym.getSeats());
+			stmt.setString(7, gym.getGymOwnerId());
+			stmt.setInt(8, gym.getNumberOfInstructors());
+			stmt.setBoolean(9, gym.isIsCardioAvailable());
+			stmt.setBoolean(10, gym.isIsCrossfitAvailable());
+			stmt.setInt(11, gym.getFloorArea());
 			stmt.executeUpdate();
+			ResultSet rs = stmt.getGeneratedKeys();
+			if(rs.next()) {
+				gym.setGymId(rs.getInt(1));
+				return gym;
+			}
+			return null;
 		}
 		catch(SQLException se) {
 			se.printStackTrace();
 		}
+		return null;
 	}
 }
