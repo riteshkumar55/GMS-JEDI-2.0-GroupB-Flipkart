@@ -15,7 +15,7 @@ import com.flipkart.bean.Gym;
 public class AdminGMSService implements AdminGMSInterface{
 	public List<Gym> showAllGymCentres() {
 		GymGMSDao GMSDao = new GymGMSDAOImpl();
-		List<Gym> gymnasiums = GMSDao.getAllAvailableGyms();
+		List<Gym> gymnasiums = GMSDao.getAllGyms();
 		return gymnasiums;
 	}
 	public boolean approveGym(int gymId) {

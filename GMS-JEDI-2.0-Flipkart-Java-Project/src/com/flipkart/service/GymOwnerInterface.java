@@ -6,7 +6,7 @@ import com.flipkart.bean.GymOwner;
 
 public interface GymOwnerInterface {
 	public boolean gymOwnerRegister(GymOwner newGymOwner);
-	public boolean addGym(Gym gym, String username);
+	public Gym addGym(Gym gym);
 	public boolean removeGym(int gymId);
 	public void viewGym(String username);
 }

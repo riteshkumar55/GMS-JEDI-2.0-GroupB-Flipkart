@@ -14,33 +14,41 @@ public class GMSApplication {
 	
 	public static List<GymOwner> gymOwnerList = new ArrayList<>();
 	
-	public static void main(String[] args) {
-		Scanner in = new Scanner(System.in);
-		GMSApplication gmsApplication = new GMSApplication();
-		createMainMenu();
-		int userInput = in.nextInt();
-		while (userInput != 5) {
-			switch (userInput) {
-			case 1:
-				// login
-				gmsApplication.loginUser();
-				break;
-			case 2:
-				// student registration
-				gmsApplication.customerRegistration();
-				break;
-			case 3:
-				gmsApplication.gymownerRegistration();
-				break;
-			case 4:
-				gmsApplication.updatePassword();
-			default:
-				System.out.println("Invalid Output");
-			}
+	public static void menu() {
+		try {
+			Scanner in = new Scanner(System.in);
+			GMSApplication gmsApplication = new GMSApplication();
 			createMainMenu();
-			userInput = in.nextInt();
+			int userInput = in.nextInt();
+			while (userInput != 5) {
+				switch (userInput) {
+				case 1:
+					// login
+					gmsApplication.loginUser();
+					break;
+				case 2:
+					// student registration
+					gmsApplication.customerRegistration();
+					break;
+				case 3:
+					gmsApplication.gymownerRegistration();
+					break;
+				case 4:
+					gmsApplication.updatePassword();
+				default:
+					System.out.println("Invalid Output");
+				}
+				createMainMenu();
+				userInput = in.nextInt();
+			}
+		}catch(InputMismatchException excep) {
+			System.out.println("Wrong user input, try again!");
+			menu();
 		}
-
+	}
+	
+	public static void main(String[] args) {
+		menu();
 	}
 
 	public static void createMainMenu() {
