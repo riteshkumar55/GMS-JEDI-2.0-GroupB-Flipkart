@@ -2,6 +2,7 @@ package com.flipkart.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.flipkart.bean.Gym;
@@ -24,6 +25,22 @@ public class GymOwnerGMSDAOImpl implements GymOwnerGMSDao {
 			se.printStackTrace();
 		}
 		return ;
+	}
+
+	@Override
+	public boolean isApproved(String gym_owner_id) {
+		Connection conn = DBUtils.getConnection();
+		try {
+			PreparedStatement stmt = conn.prepareStatement(SQLConstants.CHECK_IS_GYM_OWNER_APPROVED);
+			ResultSet rs = stmt.executeQuery();
+			if(rs.next()) {
+				return rs.getBoolean("is_approved");
+			}
+		}
+		catch(SQLException se) {
+			return false;
+		}
+		return false;
 	}
 
 }

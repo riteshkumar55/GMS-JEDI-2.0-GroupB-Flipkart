@@ -24,18 +24,11 @@ public class GymOwnerService implements GymOwnerInterface{
 		return false;
 	}
 	@Override
-	public void viewGym(String username) {
+	public List<Gym> viewGym(String username) {
 		// TODO Auto-generated method stub
 		GymGMSDao gymDao = new GymGMSDAOImpl();
 		List<Gym> gymnasiums = gymDao.getAllMyGyms(username);
-		System.out.println("Name \t Address \t Total Slots Number of Machines");
-		for(Gym myGym: gymnasiums) {
-			System.out.printf("%-5s\t", myGym.getGymName());
-			System.out.printf("%-10s\t", myGym.getAddress());
-			System.out.printf("%-3d\t", myGym.getTotSlots());
-			System.out.printf("%-3d\n", myGym.getNumberOfMachines());
-			
-		}
+		return gymnasiums;
 	}
 	
 	public boolean gymOwnerRegister(GymOwner newGymOwner) {

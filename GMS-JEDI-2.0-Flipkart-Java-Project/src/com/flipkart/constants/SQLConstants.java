@@ -29,4 +29,5 @@ public class SQLConstants {
 				+ "number_of_instructors, is_cardio_available, is_crossfit_available, floor_area) Values(?,?,?,?,?,?,?,?,?,?,?);";
 	public static final String CREATE_GYM_OWNER = "INSERT INTO Gym_owner (gym_owner_id, address, aadhaar, pan) Values (?,?,?,?);";
 	public static final String CREATE_SLOT = "INSERT INTO Slot (slot_start_time, slot_end_time, available_seats,gym_id, day) Values(?,?,?,?,?)";
+	public static final String CHECK_IS_GYM_OWNER_APPROVED = "SELECT is_approved FROM Gym_owner WHERE gym_owner_id=?";
 }

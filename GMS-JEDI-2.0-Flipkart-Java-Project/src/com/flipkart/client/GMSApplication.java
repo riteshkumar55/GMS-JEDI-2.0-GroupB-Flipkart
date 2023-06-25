@@ -4,16 +4,16 @@ import java.util.*;
 import com.flipkart.service.*;
 import com.flipkart.bean.*;
 import com.flipkart.client.*;
+import com.flipkart.exceptions.*;
 
 public class GMSApplication {
-
 
 	public static List<User> userList = new ArrayList<>();
 
 	public static List<Customer> customerList = new ArrayList<>();
-	
+
 	public static List<GymOwner> gymOwnerList = new ArrayList<>();
-	
+
 	public static void menu() {
 		try {
 			Scanner in = new Scanner(System.in);
@@ -41,12 +41,12 @@ public class GMSApplication {
 				createMainMenu();
 				userInput = in.nextInt();
 			}
-		}catch(InputMismatchException excep) {
+		} catch (InputMismatchException excep) {
 			System.out.println("Wrong user input, try again!");
 			menu();
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		menu();
 	}
@@ -72,30 +72,39 @@ public class GMSApplication {
 		String password = in.next();
 		UserInterface userSer = new UserService();
 		RoleGMSInterface rolSer = new RoleGMSService();
-		User user = userSer.login(username, password);
-		if (user!=null) {
-			String role = rolSer.getRoleNameById(user.getRoleId());
-			switch (role) {
-			case "Customer":
-				GMSCustomerMenu.showCustomerMenu(username);
-				break;
+		User user = null;
+		try {
+			user = userSer.login(username, password);
+			if (user != null) {
+				String role = rolSer.getRoleNameById(user.getRoleId());
+				switch (role) {
+				case "Customer":
+					GMSCustomerMenu.showCustomerMenu(username);
+					break;
 
-			case "Gym Owner":
-				GMSGymOwnerMenu gymOwnerMenu = new GMSGymOwnerMenu();
-				gymOwnerMenu.showGymOwnerMenu(username);
-				break;
+				case "Gym Owner":
+					GMSGymOwnerMenu gymOwnerMenu = new GMSGymOwnerMenu();
+					gymOwnerMenu.showGymOwnerMenu(username);
+					break;
 
-			case "Admin":
-				GMSAdminMenu adminMenu = new GMSAdminMenu();
-				adminMenu.showAdminMenu(username);
-				break;
-			
-			default:
-				System.out.println("\nRole not found\n");
-				break;
+				case "Admin":
+					GMSAdminMenu adminMenu = new GMSAdminMenu();
+					adminMenu.showAdminMenu(username);
+					break;
+
+				default:
+					System.out.println("\nRole not found\n");
+
+					break;
+				}
 			}
-		} else {
-			System.out.println("\nWrong Login Credentials!\n");
+		} catch (InvalidLoginCredentialsException ilce) {
+			System.out.println(ilce.getMessage());
+			return;
+		}
+		catch (AccountNotApprovedException acne) {
+			System.out.println(acne.getMessage());
+			return;
 		}
 	}
 
@@ -107,7 +116,7 @@ public class GMSApplication {
 	public void gymownerRegistration() {
 		GMSGymOwnerMenu gymOwnerMenu = new GMSGymOwnerMenu();
 		gymOwnerMenu.gymOwnerRegistration(userList, gymOwnerList);
-		
+
 	}
 
 	public boolean updatePassword() {
